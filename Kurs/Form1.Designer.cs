@@ -30,15 +30,8 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.querryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.audiencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +41,13 @@
             this.materialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.citiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.streetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.querryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +73,12 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
             // tablesToolStripMenuItem
             // 
             this.tablesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -88,68 +94,6 @@
             this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
             this.tablesToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.tablesToolStripMenuItem.Text = "Tables";
-            // 
-            // querryToolStripMenuItem
-            // 
-            this.querryToolStripMenuItem.Name = "querryToolStripMenuItem";
-            this.querryToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.querryToolStripMenuItem.Text = "Querry";
-            // 
-            // formsToolStripMenuItem
-            // 
-            this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
-            this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.formsToolStripMenuItem.Text = "Forms";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 250);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 324);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 39);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Insert";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(240, 324);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 39);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(475, 324);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 39);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(687, 324);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(101, 39);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Refresh";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
             // 
             // buildingsToolStripMenuItem
             // 
@@ -213,6 +157,66 @@
             this.streetsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.streetsToolStripMenuItem.Text = "Streets";
             this.streetsToolStripMenuItem.Click += new System.EventHandler(this.streetsToolStripMenuItem_Click);
+            // 
+            // querryToolStripMenuItem
+            // 
+            this.querryToolStripMenuItem.Name = "querryToolStripMenuItem";
+            this.querryToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.querryToolStripMenuItem.Text = "Querry";
+            // 
+            // formsToolStripMenuItem
+            // 
+            this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
+            this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.formsToolStripMenuItem.Text = "Forms";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(776, 250);
+            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dataGridView1.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_UserAddedRow);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 324);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 39);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Insert";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(240, 324);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(101, 39);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Update";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(475, 324);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(101, 39);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Delete";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(687, 324);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(101, 39);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Refresh";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
