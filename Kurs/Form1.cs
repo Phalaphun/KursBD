@@ -34,6 +34,7 @@ namespace Kurs
         public Form1()
         {
             InitializeComponent();
+            openFileDialog1.InitialDirectory = Environment.CurrentDirectory + "\\images";
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -57,49 +58,49 @@ namespace Kurs
                 propertyAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *, 'DELETE' As del from property", conn));
                 streetsAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *, 'DELETE' As del from streets_handbook", conn));
                 var a = new NpgsqlCommandBuilder(buildingAdapter);
-                a.GetDeleteCommand();
-                a.GetInsertCommand();
-                a.GetUpdateCommand();
+                buildingAdapter.DeleteCommand = a.GetDeleteCommand();
+                buildingAdapter.InsertCommand = a.GetInsertCommand();
+                buildingAdapter.UpdateCommand = a.GetUpdateCommand();
 
-                a = new NpgsqlCommandBuilder(audAdapter);
-                a.GetDeleteCommand();
-                a.GetInsertCommand();
-                a.GetUpdateCommand();
+                //a = new NpgsqlCommandBuilder(audAdapter);
+                //audAdapter.DeleteCommand = a.GetDeleteCommand();
+                //audAdapter.InsertCommand = a.GetInsertCommand();
+                //audAdapter.UpdateCommand = a.GetUpdateCommand();
 
-                a = new NpgsqlCommandBuilder(departmentAdapter);
-                a.GetDeleteCommand();
-                a.GetInsertCommand();
-                a.GetUpdateCommand();
+                //a = new NpgsqlCommandBuilder(departmentAdapter);
+                //departmentAdapter.DeleteCommand = a.GetDeleteCommand();
+                //departmentAdapter.InsertCommand = a.GetInsertCommand();
+                //departmentAdapter.UpdateCommand = a.GetUpdateCommand();
 
-                a = new NpgsqlCommandBuilder(citiesAdapter);
-                a.GetDeleteCommand();
-                a.GetInsertCommand();
-                a.GetUpdateCommand();
+                //a = new NpgsqlCommandBuilder(citiesAdapter);
+                //citiesAdapter.DeleteCommand = a.GetDeleteCommand();
+                //citiesAdapter.InsertCommand = a.GetInsertCommand();
+                //citiesAdapter.UpdateCommand = a.GetUpdateCommand();
 
-                a = new NpgsqlCommandBuilder(deansAdapter);
-                a.GetDeleteCommand();
-                a.GetInsertCommand();
-                a.GetUpdateCommand();
+                //a = new NpgsqlCommandBuilder(deansAdapter);
+                //deansAdapter.DeleteCommand = a.GetDeleteCommand();
+                //deansAdapter.InsertCommand = a.GetInsertCommand();
+                //deansAdapter.UpdateCommand = a.GetUpdateCommand();
 
-                a = new NpgsqlCommandBuilder(materialAdapter);
-                a.GetDeleteCommand();
-                a.GetInsertCommand();
-                a.GetUpdateCommand();
+                //a = new NpgsqlCommandBuilder(materialAdapter);
+                //materialAdapter.DeleteCommand = a.GetDeleteCommand();
+                //materialAdapter.InsertCommand = a.GetInsertCommand();
+                //materialAdapter.UpdateCommand = a.GetUpdateCommand();
 
-                a = new NpgsqlCommandBuilder(materialResAdapter);
-                a.GetDeleteCommand();
-                a.GetInsertCommand();
-                a.GetUpdateCommand();
+                //a = new NpgsqlCommandBuilder(materialResAdapter);
+                //materialResAdapter.DeleteCommand = a.GetDeleteCommand();
+                //materialResAdapter.InsertCommand = a.GetInsertCommand();
+                //materialResAdapter.UpdateCommand = a.GetUpdateCommand();
 
-                a = new NpgsqlCommandBuilder(propertyAdapter);
-                a.GetDeleteCommand();
-                a.GetInsertCommand();
-                a.GetUpdateCommand();
+                //a = new NpgsqlCommandBuilder(propertyAdapter);
+                //propertyAdapter.DeleteCommand = a.GetDeleteCommand();
+                //propertyAdapter.InsertCommand = a.GetInsertCommand();
+                //propertyAdapter.UpdateCommand = a.GetUpdateCommand();
 
-                a = new NpgsqlCommandBuilder(streetsAdapter);
-                a.GetDeleteCommand();
-                a.GetInsertCommand();
-                a.GetUpdateCommand();
+                //a = new NpgsqlCommandBuilder(streetsAdapter);
+                //streetsAdapter.DeleteCommand = a.GetDeleteCommand();
+                //streetsAdapter.InsertCommand = a.GetInsertCommand();
+                //streetsAdapter.UpdateCommand = a.GetUpdateCommand();
 
 
                 dataSet = new DataSet();
@@ -123,7 +124,7 @@ namespace Kurs
             }
             finally
             {
-                conn.Close();
+                //conn.Close();
             }
         }
 
@@ -546,6 +547,49 @@ namespace Kurs
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            switch (currentTable)
+            {
+                case "buildings":
+                    if(e.ColumnIndex == 7)
+                    {
+                        openFileDialog1.ShowDialog();
+                        dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = openFileDialog1.FileName;
+                    }
+                    break;
+                case "audiences":
+                    
+                    break;
+                case "department":
+
+                    break;
+                case "cities_handbook":
+
+                    break;
+                case "deans_handbook":
+
+                    break;
+                case "material_handbook":
+
+                    break;
+                case "materially_responsible":
+
+                    break;
+                case "property":
+
+                    break;
+                case "streets_handbook":
+
+                    break;
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            conn.Close();
         }
     }
 }
