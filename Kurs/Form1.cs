@@ -83,6 +83,7 @@ namespace Kurs
         {
             currentTable = "buildings";
             dataGridView1.DataSource = dataSet.Tables[currentTable];
+            
         }
 
         private void audiencesToolStripMenuItem_Click(object sender, EventArgs e)
