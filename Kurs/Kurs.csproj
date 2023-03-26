@@ -112,6 +112,12 @@
     <Compile Include="IUAud.Designer.cs">
       <DependentUpon>IUAud.cs</DependentUpon>
     </Compile>
+    <Compile Include="IUDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUDepartment.Designer.cs">
+      <DependentUpon>IUDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="IUProperty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IUAud.resx">
       <DependentUpon>IUAud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUDepartment.resx">
+      <DependentUpon>IUDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IUProperty.resx">
       <DependentUpon>IUProperty.cs</DependentUpon>

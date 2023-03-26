@@ -217,7 +217,7 @@
             // 
             // clearBut
             // 
-            this.clearBut.Location = new System.Drawing.Point(32, 338);
+            this.clearBut.Location = new System.Drawing.Point(80, 349);
             this.clearBut.Name = "clearBut";
             this.clearBut.Size = new System.Drawing.Size(102, 51);
             this.clearBut.TabIndex = 20;
@@ -227,7 +227,7 @@
             // 
             // updateBut
             // 
-            this.updateBut.Location = new System.Drawing.Point(306, 337);
+            this.updateBut.Location = new System.Drawing.Point(306, 291);
             this.updateBut.Name = "updateBut";
             this.updateBut.Size = new System.Drawing.Size(98, 52);
             this.updateBut.TabIndex = 21;
@@ -237,9 +237,9 @@
             // 
             // insertBut
             // 
-            this.insertBut.Location = new System.Drawing.Point(548, 338);
+            this.insertBut.Location = new System.Drawing.Point(306, 349);
             this.insertBut.Name = "insertBut";
-            this.insertBut.Size = new System.Drawing.Size(100, 51);
+            this.insertBut.Size = new System.Drawing.Size(98, 54);
             this.insertBut.TabIndex = 22;
             this.insertBut.Text = "Insert";
             this.insertBut.UseVisualStyleBackColor = true;
@@ -247,7 +247,7 @@
             // 
             // exitBut
             // 
-            this.exitBut.Location = new System.Drawing.Point(306, 433);
+            this.exitBut.Location = new System.Drawing.Point(306, 409);
             this.exitBut.Name = "exitBut";
             this.exitBut.Size = new System.Drawing.Size(98, 53);
             this.exitBut.TabIndex = 23;

@@ -17,9 +17,9 @@ namespace Kurs
         string mission;
         NpgsqlConnection conn;
         List<Dictionary<string, int>> dictionaries;
-        DataSet ds = new DataSet();
+        List<string>[] keys;
         Dictionary<string, string> buildDic;
-        public IUAud(BindingSource bs, string mission, NpgsqlConnection conn, List<Dictionary<string, int>> dictionaries, DataSet d, Dictionary<string,string> b)
+        public IUAud(BindingSource bs, string mission, NpgsqlConnection conn, List<Dictionary<string, int>> dictionaries, List<string>[] keys, Dictionary<string,string> b)
         {
             InitializeComponent();
             this.bs = bs;
@@ -27,7 +27,7 @@ namespace Kurs
             this.conn = conn;
             this.dictionaries = dictionaries;
             this.buildDic = b;
-            this.ds = d;
+            this.keys = keys;
         }
 
         private void IUAud_Load(object sender, EventArgs e)
@@ -58,25 +58,9 @@ namespace Kurs
 
         private void PrepairComboboxex()
         {
-            int count = ds.Tables["buildings"].Rows.Count;
-            for (int i = 0; i < count; i++)
-            {
-                comboBox1.Items.Add(ds.Tables["buildings"].Rows[i].ItemArray[1]);
-            }
-
-            count = ds.Tables["materially_responsible"].Rows.Count;
-            for (int i = 0; i < count; i++)
-            {
-                comboBox2.Items.Add((string)ds.Tables["materially_responsible"].Rows[i].ItemArray[2] + " " + (string)ds.Tables["materially_responsible"].Rows[i].ItemArray[3] + " " + (string)ds.Tables["materially_responsible"].Rows[i].ItemArray[4]);
-            }
-
-            count = ds.Tables["department"].Rows.Count;
-            for (int i = 0; i < count; i++)
-            {
-                comboBox3.Items.Add((string)ds.Tables["department"].Rows[i].ItemArray[1]);
-            }
-
-
+            comboBox1.Items.AddRange(keys[6].ToArray());
+            comboBox2.Items.AddRange(keys[3].ToArray());
+            comboBox3.Items.AddRange(keys[4].ToArray());
         }
 
         private void button4_Click(object sender, EventArgs e)

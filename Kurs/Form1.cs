@@ -34,6 +34,7 @@ namespace Kurs
         string currentTable = String.Empty;
         List<Dictionary<string, int>> dictionaries;
         Dictionary<string, string> BuildDic;
+        List<string>[] keys;
 
 
         public Form1()
@@ -207,6 +208,7 @@ namespace Kurs
                 case "streets_handbook":
                     streetsAdapter.Fill(dataSet, "streets_handbook");
                     break;
+                    Make_Dictionaries()
             }
         }
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -221,15 +223,16 @@ namespace Kurs
             switch (currentTable)
             {
                 case "buildings":
-                    Form buildings = new Insert_Update_Delete_buildings(bs, "Insert", conn, dictionaries,dataSet);
+                    Form buildings = new Insert_Update_Delete_buildings(bs, "Insert", conn, dictionaries,keys);
                     buildings.ShowDialog();
                     break;
                 case "audiences":
-                    Form aud = new IUAud(bs, "Insert", conn, dictionaries, dataSet, BuildDic);
+                    Form aud = new IUAud(bs, "Insert", conn, dictionaries, keys, BuildDic);
                     aud.ShowDialog();
                     break;
                 case "department":
-
+                    Form dep = new IUDepartment(bs, "Insert", conn, dictionaries, keys);
+                    dep.ShowDialog();
                     break;
                 case "cities_handbook":
 
@@ -260,15 +263,16 @@ namespace Kurs
             switch (currentTable)
             {
                 case "buildings":
-                    Form buildings = new Insert_Update_Delete_buildings(bs, "Update", conn, dictionaries, dataSet);
+                    Form buildings = new Insert_Update_Delete_buildings(bs, "Update", conn, dictionaries, keys);
                     buildings.ShowDialog();
                     break;
                 case "audiences":
-                    Form aud = new IUAud(bs, "Update", conn, dictionaries, dataSet, BuildDic);
+                    Form aud = new IUAud(bs, "Update", conn, dictionaries, keys, BuildDic);
                     aud.ShowDialog();
                     break;
                 case "department":
-
+                    Form dep = new IUDepartment(bs, "Update", conn, dictionaries, keys);
+                    dep.ShowDialog();
                     break;
                 case "cities_handbook":
 
@@ -309,15 +313,19 @@ namespace Kurs
         {
             Refresh();
         }
-
-
         private void Make_Dictionaries()
         {
+            keys = new List<string>[7];
+            for (int i = 0; i < keys.Length; i++)
+            {
+                keys[i] = new List<string>();
+            }
             int count = dataSet.Tables["material_handbook"].Rows.Count;
             Dictionary<string,int> materialsDic = new Dictionary<string,int>();
             for (int i = 0; i < count; i++)
             {
                 materialsDic.Add((string)dataSet.Tables["material_handbook"].Rows[i].ItemArray[1], (int)dataSet.Tables["material_handbook"].Rows[i].ItemArray[0]);
+                keys[5].Add((string)dataSet.Tables["material_handbook"].Rows[i].ItemArray[1]);
             }
 
             count = dataSet.Tables["streets_handbook"].Rows.Count;
@@ -335,6 +343,7 @@ namespace Kurs
                 }
 
                 streetsDic.Add(s, (int)dataSet.Tables["streets_handbook"].Rows[i].ItemArray[0]);
+                keys[0].Add(s);
             }
 
             count = dataSet.Tables["cities_handbook"].Rows.Count;
@@ -342,6 +351,7 @@ namespace Kurs
             for (int i = 0; i < count; i++)
             {
                 citiesDic.Add((string)dataSet.Tables["cities_handbook"].Rows[i].ItemArray[1] + " "+(string)dataSet.Tables["cities_handbook"].Rows[i].ItemArray[2], (int)dataSet.Tables["cities_handbook"].Rows[i].ItemArray[0]);
+                keys[1].Add((string)dataSet.Tables["cities_handbook"].Rows[i].ItemArray[1] + " " + (string)dataSet.Tables["cities_handbook"].Rows[i].ItemArray[2]);
             }
 
             count = dataSet.Tables["deans_handbook"].Rows.Count;
@@ -349,6 +359,7 @@ namespace Kurs
             for (int i = 0; i < count; i++)
             {
                 deansDic.Add((string)dataSet.Tables["deans_handbook"].Rows[i].ItemArray[1], (int)dataSet.Tables["deans_handbook"].Rows[i].ItemArray[0]);
+                keys[2].Add((string)dataSet.Tables["deans_handbook"].Rows[i].ItemArray[1]);
             }
 
             count = dataSet.Tables["materially_responsible"].Rows.Count;
@@ -356,6 +367,7 @@ namespace Kurs
             for (int i = 0; i < count; i++)
             {
                 matResDic.Add((string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[2]+" "+ (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[3]+" "+ (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4], (int)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[0]);
+                keys[3].Add((string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[2] + " " + (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[3] + " " + (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4]);
             }
 
             count = dataSet.Tables["department"].Rows.Count;
@@ -363,6 +375,7 @@ namespace Kurs
             for (int i = 0; i < count; i++)
             {
                 DepDic.Add((string)dataSet.Tables["department"].Rows[i].ItemArray[1], (int)dataSet.Tables["department"].Rows[i].ItemArray[0]);
+                keys[4].Add((string)dataSet.Tables["department"].Rows[i].ItemArray[1]);
             }
 
             count = dataSet.Tables["buildings"].Rows.Count;
@@ -370,6 +383,7 @@ namespace Kurs
             for (int i = 0; i < count; i++)
             {
                 BuildDic.Add((string)dataSet.Tables["buildings"].Rows[i].ItemArray[1], (string)dataSet.Tables["buildings"].Rows[i].ItemArray[0]);
+                keys[6].Add((string)dataSet.Tables["buildings"].Rows[i].ItemArray[1]);
             }
             dictionaries = new List<Dictionary<string, int>> { streetsDic, citiesDic, deansDic , matResDic, DepDic, materialsDic };
         }

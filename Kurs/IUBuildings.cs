@@ -11,21 +11,23 @@ using System.Windows.Forms;
 
 namespace Kurs
 {
-    public partial class Insert_Update_Delete_buildings : Form
+    public partial class IUBuildings : Form
     {
         BindingSource bs;
         string mission;
         NpgsqlConnection conn;
         List<Dictionary<string, int>> dictionaries;
-        DataSet ds = new DataSet();
-        public Insert_Update_Delete_buildings(BindingSource bs, string mission, NpgsqlConnection conn, List<Dictionary<string, int>> dictionaries, DataSet d)
+
+        List<string>[] keys;
+        public IUBuildings(BindingSource bs, string mission, NpgsqlConnection conn, List<Dictionary<string, int>> dictionaries, List<string>[] keys)
         {
             InitializeComponent();
             this.bs = bs;
             this.mission = mission;
             this.conn = conn;
             this.dictionaries = dictionaries;
-            this.ds = d;
+            this.keys = keys;
+
         }
 
         private void Insert_Update_Delete_Load(object sender, EventArgs e)
@@ -193,32 +195,12 @@ namespace Kurs
 
         private void PrepairComboboxex()
         {
-            int count = ds.Tables["material_handbook"].Rows.Count;
-            for (int i = 0; i < count; i++)
-            {
-                comboBox1.Items.Add(ds.Tables["material_handbook"].Rows[i].ItemArray[1]);
-            }
+            
+            comboBox1.Items.AddRange(keys[3].ToArray());
 
-            count = ds.Tables["cities_handbook"].Rows.Count;
-            for (int i = 0; i < count; i++)
-            {
-                comboBox2.Items.Add(ds.Tables["cities_handbook"].Rows[i].ItemArray[1] + " "+ds.Tables["cities_handbook"].Rows[i].ItemArray[2]);
-            }
+            comboBox2.Items.AddRange(keys[1].ToArray());
 
-            count = ds.Tables["streets_handbook"].Rows.Count;
-            for (int i = 0; i < count; i++)
-            {
-                string s;
-                if(!(bool)ds.Tables["streets_handbook"].Rows[i].ItemArray[2])
-                {
-                    s = ds.Tables["streets_handbook"].Rows[i].ItemArray[1] + " " + ds.Tables["streets_handbook"].Rows[i].ItemArray[3];
-                }
-                else
-                {
-                    s = ds.Tables["streets_handbook"].Rows[i].ItemArray[3] + " " + ds.Tables["streets_handbook"].Rows[i].ItemArray[1];
-                }
-                comboBox3.Items.Add(s);
-            }
+            comboBox3.Items.AddRange(keys[0].ToArray());
 
 
         }
