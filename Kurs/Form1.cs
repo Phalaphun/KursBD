@@ -244,7 +244,8 @@ namespace Kurs
 
                     break;
                 case "materially_responsible":
-
+                    Form matRes = new IUMatRes(bs, "Insert", conn, dictionaries, keys);
+                    matRes.ShowDialog();
                     break;
                 case "property":
                     Form pro = new IUProperty(bs, "Insert", conn);
@@ -284,7 +285,8 @@ namespace Kurs
 
                     break;
                 case "materially_responsible":
-
+                    Form matRes = new IUMatRes(bs, "Update", conn, dictionaries, keys);
+                    matRes.ShowDialog();
                     break;
                 case "property":
                     Form pro = new IUProperty(bs, "Update", conn);

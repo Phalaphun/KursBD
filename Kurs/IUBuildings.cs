@@ -196,7 +196,7 @@ namespace Kurs
         private void PrepairComboboxex()
         {
             
-            comboBox1.Items.AddRange(keys[3].ToArray());
+            comboBox1.Items.AddRange(keys[5].ToArray());
 
             comboBox2.Items.AddRange(keys[1].ToArray());
 
