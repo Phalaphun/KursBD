@@ -170,9 +170,9 @@ namespace Kurs
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Refresh();
+            Refresh1();
         }
-        private void Refresh()
+        private void Refresh1()
         {
             if (currentTable == String.Empty)
                 return;
@@ -215,7 +215,6 @@ namespace Kurs
         {
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (currentTable == String.Empty)
@@ -313,7 +312,7 @@ namespace Kurs
         }
         private void Form1_Activated(object sender, EventArgs e)
         {
-            Refresh();
+            Refresh1();
         }
         private void Make_Dictionaries()
         {
@@ -371,7 +370,6 @@ namespace Kurs
                 string s2,s3,s4="";
                 s2 = (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[2];
                 s3 = (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[3];
-                object o=null;
                 s4 = (dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4]).GetType()!=s2.GetType()? "": (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4];
                 matResDic.Add(s2+" "+ s3+" "+ s4, (int)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[0]);
                 keys[3].Add(s2 + " " + s3 + " " + s4);

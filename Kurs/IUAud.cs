@@ -270,5 +270,15 @@ namespace Kurs
                 }
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            WinBox.Text = "";
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            BatteryBox.Text = "";
+        }
     }
 }
