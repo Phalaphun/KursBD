@@ -33,6 +33,7 @@ namespace Kurs
 
         string currentTable = String.Empty;
         List<Dictionary<string, int>> dictionaries;
+        Dictionary<string, string> BuildDic;
 
 
         public Form1()
@@ -80,7 +81,7 @@ namespace Kurs
             {
                 conn.Close();
             }
-            //Make_Dictionaries();
+            Make_Dictionaries();
 
         }
 
@@ -92,7 +93,7 @@ namespace Kurs
             dataGridView1.DataSource = bs;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            Make_Dictionaries();
+            //Make_Dictionaries();
         }
         private void audiencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -224,7 +225,7 @@ namespace Kurs
                     buildings.ShowDialog();
                     break;
                 case "audiences":
-                    Form aud = new IUAud();
+                    Form aud = new IUAud(bs, "Insert", conn, dictionaries, dataSet, BuildDic);
                     aud.ShowDialog();
                     break;
                 case "department":
@@ -243,7 +244,8 @@ namespace Kurs
 
                     break;
                 case "property":
-
+                    Form pro = new IUProperty(bs, "Insert", conn);
+                    pro.ShowDialog();
                     break;
                 case "streets_handbook":
 
@@ -262,7 +264,8 @@ namespace Kurs
                     buildings.ShowDialog();
                     break;
                 case "audiences":
-                    
+                    Form aud = new IUAud(bs, "Update", conn, dictionaries, dataSet, BuildDic);
+                    aud.ShowDialog();
                     break;
                 case "department":
 
@@ -280,7 +283,8 @@ namespace Kurs
 
                     break;
                 case "property":
-
+                    Form pro = new IUProperty(bs, "Update", conn);
+                    pro.ShowDialog();
                     break;
                 case "streets_handbook":
 
@@ -359,6 +363,13 @@ namespace Kurs
             for (int i = 0; i < count; i++)
             {
                 DepDic.Add((string)dataSet.Tables["department"].Rows[i].ItemArray[1], (int)dataSet.Tables["department"].Rows[i].ItemArray[0]);
+            }
+
+            count = dataSet.Tables["buildings"].Rows.Count;
+            BuildDic = new Dictionary<string, string>();
+            for (int i = 0; i < count; i++)
+            {
+                BuildDic.Add((string)dataSet.Tables["buildings"].Rows[i].ItemArray[1], (string)dataSet.Tables["buildings"].Rows[i].ItemArray[0]);
             }
             dictionaries = new List<Dictionary<string, int>> { streetsDic, citiesDic, deansDic , matResDic, DepDic, materialsDic };
         }
