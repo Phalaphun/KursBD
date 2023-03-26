@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -85,8 +86,24 @@ namespace Kurs
 
                 DateTime deliveryDate = DateTime.Parse(deliveryBox.Text);
                 int cost_per_one = int.Parse(costPerOneBox.Text);
-                DateTime reprice_date = DateTime.Parse(reDateBox.Text);
-                int cost_after_one = int.Parse(reCostBox.Text);
+                DateTime? reprice_date;
+                if (reDateBox.Text == "" || reDateBox.Text == " ")
+                {
+                    reprice_date = null;
+                }
+                else
+                {
+                    reprice_date = DateTime.Parse(reDateBox.Text);
+                }
+                int? cost_after_one;
+                if (reCostBox.Text == "" || reCostBox.Text == " ")
+                {
+                    cost_after_one = null;
+                }
+                else
+                {
+                    cost_after_one = int.Parse(reCostBox.Text);
+                }
                 int lifetime = int.Parse(lifetimeBox.Text);
                 int amount = int.Parse(amountBox.Text);
                 int deprecation = int.Parse(deprecationBox.Text);
@@ -97,8 +114,26 @@ namespace Kurs
                 cmd.Parameters.AddWithValue("@p2", nameBox.Text);
                 cmd.Parameters.AddWithValue("@p3", deliveryDate);
                 cmd.Parameters.AddWithValue("@p4", cost_per_one);
-                cmd.Parameters.AddWithValue("@p5", reprice_date);
-                cmd.Parameters.AddWithValue("@p6", cost_after_one);
+                //cmd.Parameters.AddWithValue("@p5", reprice_date);
+                if (reprice_date == null)
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p5", NpgsqlDbType.Date));
+                    cmd.Parameters[4].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p5", reprice_date);
+                }
+                //cmd.Parameters.AddWithValue("@p6", cost_after_one);
+                if (cost_after_one == null)
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p6", NpgsqlDbType.Integer));
+                    cmd.Parameters[5].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p6", cost_after_one);
+                }
                 cmd.Parameters.AddWithValue("@p7", lifetime);
                 cmd.Parameters.AddWithValue("@p8", amount);
                 cmd.Parameters.AddWithValue("@p9", deprecation);
@@ -134,8 +169,24 @@ namespace Kurs
 
                 DateTime deliveryDate = DateTime.Parse(deliveryBox.Text);
                 int cost_per_one = int.Parse(costPerOneBox.Text);
-                DateTime reprice_date = DateTime.Parse(reDateBox.Text);
-                int cost_after_one = int.Parse(reCostBox.Text);
+                DateTime? reprice_date;
+                if (reDateBox.Text == "" || reDateBox.Text == " ")
+                {
+                    reprice_date = null;
+                }
+                else
+                {
+                    reprice_date = DateTime.Parse(reDateBox.Text);
+                }
+                int? cost_after_one;
+                if (reCostBox.Text == "" || reCostBox.Text == " ")
+                {
+                    cost_after_one = null;
+                }
+                else
+                {
+                    cost_after_one = int.Parse(reCostBox.Text);
+                }
                 int lifetime = int.Parse(lifetimeBox.Text);
                 int amount = int.Parse(amountBox.Text);
                 int deprecation = int.Parse(deprecationBox.Text);
@@ -146,8 +197,26 @@ namespace Kurs
                 cmd.Parameters.AddWithValue("@p2", nameBox.Text);
                 cmd.Parameters.AddWithValue("@p3", deliveryDate);
                 cmd.Parameters.AddWithValue("@p4", cost_per_one);
-                cmd.Parameters.AddWithValue("@p5", reprice_date);
-                cmd.Parameters.AddWithValue("@p6", cost_after_one);
+                //cmd.Parameters.AddWithValue("@p5", reprice_date);
+                if (reprice_date == null)
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p5", NpgsqlDbType.Date));
+                    cmd.Parameters[3].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p5", reprice_date);
+                }
+                //cmd.Parameters.AddWithValue("@p6", cost_after_one);
+                if (cost_after_one == null)
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p6", NpgsqlDbType.Integer));
+                    cmd.Parameters[4].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p6", cost_after_one);
+                }
                 cmd.Parameters.AddWithValue("@p7", lifetime);
                 cmd.Parameters.AddWithValue("@p8", amount);
                 cmd.Parameters.AddWithValue("@p9", deprecation);

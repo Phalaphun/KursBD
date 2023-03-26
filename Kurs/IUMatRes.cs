@@ -137,7 +137,7 @@ namespace Kurs
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@p7", fathersNameBox.Text);
+                    cmd.Parameters.AddWithValue("@p7", flat);
                 }
                 cmd.Parameters.AddWithValue("@p8", address);
                 cmd.Parameters.AddWithValue("@p9", city);
@@ -207,7 +207,7 @@ namespace Kurs
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@p7", fathersNameBox.Text);
+                    cmd.Parameters.AddWithValue("@p7", flat);
                 }
                 cmd.Parameters.AddWithValue("@p8", address);
                 cmd.Parameters.AddWithValue("@p9", city);
