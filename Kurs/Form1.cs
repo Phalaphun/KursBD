@@ -208,8 +208,8 @@ namespace Kurs
                 case "streets_handbook":
                     streetsAdapter.Fill(dataSet, "streets_handbook");
                     break;
-                    Make_Dictionaries()
             }
+            Make_Dictionaries();
         }
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -223,7 +223,7 @@ namespace Kurs
             switch (currentTable)
             {
                 case "buildings":
-                    Form buildings = new Insert_Update_Delete_buildings(bs, "Insert", conn, dictionaries,keys);
+                    Form buildings = new IUBuildings(bs, "Insert", conn, dictionaries,keys);
                     buildings.ShowDialog();
                     break;
                 case "audiences":
@@ -263,7 +263,7 @@ namespace Kurs
             switch (currentTable)
             {
                 case "buildings":
-                    Form buildings = new Insert_Update_Delete_buildings(bs, "Update", conn, dictionaries, keys);
+                    Form buildings = new IUBuildings(bs, "Update", conn, dictionaries, keys);
                     buildings.ShowDialog();
                     break;
                 case "audiences":
