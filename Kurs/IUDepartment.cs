@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +49,16 @@ namespace Kurs
                 cmd.Parameters.AddWithValue("@p2", nameBox.Text);
                 cmd.Parameters.AddWithValue("@p3", secondNameBox.Text);
                 cmd.Parameters.AddWithValue("@p4", firstNameBox.Text);
-                cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                //cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                if (fathersNameBox.Text == "" || fathersNameBox.Text == " ")
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p5", NpgsqlDbType.Varchar));
+                    cmd.Parameters[4].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                }
                 cmd.Parameters.AddWithValue("@p6", dean);
                 cmd.Parameters.AddWithValue("@p7", telBox.Text);
                 conn.Open();
@@ -108,7 +118,16 @@ namespace Kurs
                 cmd.Parameters.AddWithValue("@p2", nameBox.Text);
                 cmd.Parameters.AddWithValue("@p3", secondNameBox.Text);
                 cmd.Parameters.AddWithValue("@p4", firstNameBox.Text);
-                cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                //cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                if (fathersNameBox.Text == "" || fathersNameBox.Text == " ")
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p5", NpgsqlDbType.Varchar));
+                    cmd.Parameters[3].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                }
                 cmd.Parameters.AddWithValue("@p6", dean);
                 cmd.Parameters.AddWithValue("@p7", telBox.Text);
                 conn.Open();
