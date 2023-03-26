@@ -211,16 +211,77 @@ namespace Kurs
         {
             if (currentTable == String.Empty)
                 return;
-            Form IO = new Insert_Update_Delete(bs, "Insert",conn);
-            IO.Show();
+            switch (currentTable)
+            {
+                case "buildings":
+                    Form buildings = new Insert_Update_Delete_buildings(bs, "Insert", conn);
+                    buildings.ShowDialog();
+                    break;
+                case "audiences":
+                    Form aud = new IUAud();
+                    aud.ShowDialog();
+                    break;
+                case "department":
+
+                    break;
+                case "cities_handbook":
+
+                    break;
+                case "deans_handbook":
+
+                    break;
+                case "material_handbook":
+
+                    break;
+                case "materially_responsible":
+
+                    break;
+                case "property":
+
+                    break;
+                case "streets_handbook":
+
+                    break;
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (currentTable == String.Empty)
                 return;
-            Form IO = new Insert_Update_Delete(bs, "Update", conn);
-            IO.Show();
+            switch (currentTable)
+            {
+                case "buildings":
+                    Form buildings = new Insert_Update_Delete_buildings(bs, "Update", conn);
+                    buildings.ShowDialog();
+                    break;
+                case "audiences":
+                    
+                    break;
+                case "department":
+
+                    break;
+                case "cities_handbook":
+
+                    break;
+                case "deans_handbook":
+
+                    break;
+                case "material_handbook":
+
+                    break;
+                case "materially_responsible":
+
+                    break;
+                case "property":
+
+                    break;
+                case "streets_handbook":
+
+                    break;
+            }
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -235,6 +296,11 @@ namespace Kurs
         {
             conn.Close();
             this.Close();
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }
