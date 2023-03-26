@@ -75,6 +75,7 @@
             this.WinBox.Name = "WinBox";
             this.WinBox.Size = new System.Drawing.Size(172, 20);
             this.WinBox.TabIndex = 2;
+            this.WinBox.TextChanged += new System.EventHandler(this.WinBox_TextChanged);
             // 
             // BatteryBox
             // 
@@ -259,7 +260,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(51, 25);
             this.button5.TabIndex = 23;
-            this.button5.Text = "clear";
+            this.button5.Text = "to null";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -269,7 +270,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(51, 25);
             this.button6.TabIndex = 24;
-            this.button6.Text = "clear";
+            this.button6.Text = "to null";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 

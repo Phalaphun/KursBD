@@ -85,8 +85,8 @@ namespace Kurs
                 secondNameBox.DataBindings.Add("Text", bs, "second_name");
                 firstNameBox.DataBindings.Add("Text", bs, "first_name");
                 fathersNameBox.DataBindings.Add("Text", bs, "fathers_name");
-                deanBox.DataBindings.Add("Text", bs, "deans");
-                telBox.DataBindings.Add("Text", bs, "phone");
+                deanBox.DataBindings.Add("Text", bs, "deans", true, DataSourceUpdateMode.Never);
+                telBox.DataBindings.Add("Text", bs, "phone", true, DataSourceUpdateMode.Never);
 
                 insertBut.Enabled = false; insertBut.Visible = false;
                 clearBut.Enabled = false; clearBut.Visible = false;

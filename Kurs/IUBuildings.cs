@@ -37,15 +37,15 @@ namespace Kurs
             {
                 cadastreBox.DataBindings.Add("Text", bs, "cadastre");
                 NameBox.DataBindings.Add("Text", bs, "name");
-                SquareBox.DataBindings.Add("Text", bs, "square");
-                HouseNumBox.DataBindings.Add("Text", bs, "house_number");
-                BuildBox.DataBindings.Add("Text", bs, "year_built");
-                FloorsBox.DataBindings.Add("Text", bs, "num_of_floors");
+                SquareBox.DataBindings.Add("Text", bs, "square", true, DataSourceUpdateMode.Never);
+                HouseNumBox.DataBindings.Add("Text", bs, "house_number", true, DataSourceUpdateMode.Never);
+                BuildBox.DataBindings.Add("Text", bs, "year_built", true, DataSourceUpdateMode.Never);
+                FloorsBox.DataBindings.Add("Text", bs, "num_of_floors", true, DataSourceUpdateMode.Never);
                 CommBox6.DataBindings.Add("Text", bs, "comment");
                 PhotoBox.DataBindings.Add("Text", bs, "photo");
-                MaterialBox.DataBindings.Add("Text", bs, "material");
-                CityBox.DataBindings.Add("Text", bs, "city");
-                AddressBox.DataBindings.Add("Text", bs, "address"); 
+                MaterialBox.DataBindings.Add("Text", bs, "material", true, DataSourceUpdateMode.Never);
+                CityBox.DataBindings.Add("Text", bs, "city", true, DataSourceUpdateMode.Never);
+                AddressBox.DataBindings.Add("Text", bs, "address", true, DataSourceUpdateMode.Never); 
                 
                 
                 button5.Enabled = false; button5.Visible = false;

@@ -34,14 +34,14 @@ namespace Kurs
             if (mission == "Update")
             {
                 idBox.DataBindings.Add("Text", bs, "id");
-                yearBox.DataBindings.Add("Text", bs, "start_year");
+                yearBox.DataBindings.Add("Text", bs, "start_year", true, DataSourceUpdateMode.Never);
                 secondNameBox.DataBindings.Add("Text", bs, "second_name");
                 firstNameBox.DataBindings.Add("Text", bs, "first_name");
                 fathersNameBox.DataBindings.Add("Text", bs, "fathers_name");
-                houseNumBox.DataBindings.Add("Text", bs, "num_of_house");
-                flatNumBox.DataBindings.Add("Text", bs, "num_of_flat");
-                addressBox.DataBindings.Add("Text", bs, "address");
-                cityBox.DataBindings.Add("Text", bs, "city");
+                houseNumBox.DataBindings.Add("Text", bs, "num_of_house", true, DataSourceUpdateMode.Never);
+                flatNumBox.DataBindings.Add("Text", bs, "num_of_flat", true, DataSourceUpdateMode.Never);
+                addressBox.DataBindings.Add("Text", bs, "address", true, DataSourceUpdateMode.Never);
+                cityBox.DataBindings.Add("Text", bs, "city", true, DataSourceUpdateMode.Never);
 
                 insertBut.Enabled = false; insertBut.Visible = false;
                 clearBut.Enabled = false; clearBut.Visible = false;

@@ -36,13 +36,14 @@ namespace Kurs
             if (mission == "Update")
             {
                 AudBox.DataBindings.Add("Text", bs, "aud_num");
-                SquareBox.DataBindings.Add("Text", bs, "square");
-                WinBox.DataBindings.Add("Text", bs, "windows_nums");
-                BatteryBox.DataBindings.Add("Text", bs, "battery_nums");
+                SquareBox.DataBindings.Add("Text", bs, "square", true, DataSourceUpdateMode.Never);
+                WinBox.DataBindings.Add("Text", bs, "windows_nums", true, DataSourceUpdateMode.Never);
+                //BatteryBox.DataBindings.Add("Text", bs, "battery_nums");
+                BatteryBox.DataBindings.Add("Text", bs, "battery_nums", true, DataSourceUpdateMode.Never);
                 typeBox.DataBindings.Add("Text", bs, "type");
                 buildBox.DataBindings.Add("Text", bs, "name_of_building");
-                matResBox.DataBindings.Add("Text", bs, "materially_responsible");
-                depBox.DataBindings.Add("Text", bs, "department");
+                matResBox.DataBindings.Add("Text", bs, "materially_responsible", true, DataSourceUpdateMode.Never);
+                depBox.DataBindings.Add("Text", bs, "department", true, DataSourceUpdateMode.Never);
 
 
 
@@ -279,6 +280,11 @@ namespace Kurs
         private void button6_Click(object sender, EventArgs e)
         {
             BatteryBox.Text = "";
+        }
+
+        private void WinBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

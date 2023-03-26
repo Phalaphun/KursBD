@@ -33,13 +33,13 @@ namespace Kurs
             {
                 idBox.DataBindings.Add("Text", bs, "id");
                 nameBox.DataBindings.Add("Text", bs, "name");
-                deliveryBox.DataBindings.Add("Text", bs, "delivery_date");
-                costPerOneBox.DataBindings.Add("Text", bs, "cost_per_one");
-                reDateBox.DataBindings.Add("Text", bs, "reprice_date");
-                reCostBox.DataBindings.Add("Text", bs, "cost_after_reprice");
-                lifetimeBox.DataBindings.Add("Text", bs, "lifetime");
-                amountBox.DataBindings.Add("Text", bs, "amount");
-                deprecationBox.DataBindings.Add("Text", bs, "depreciation");
+                deliveryBox.DataBindings.Add("Text", bs, "delivery_date", true, DataSourceUpdateMode.Never);
+                costPerOneBox.DataBindings.Add("Text", bs, "cost_per_one", true, DataSourceUpdateMode.Never);
+                reDateBox.DataBindings.Add("Text", bs, "reprice_date", true, DataSourceUpdateMode.Never);
+                reCostBox.DataBindings.Add("Text", bs, "cost_after_reprice", true, DataSourceUpdateMode.Never);
+                lifetimeBox.DataBindings.Add("Text", bs, "lifetime", true, DataSourceUpdateMode.Never);
+                amountBox.DataBindings.Add("Text", bs, "amount", true, DataSourceUpdateMode.Never);
+                deprecationBox.DataBindings.Add("Text", bs, "depreciation", true, DataSourceUpdateMode.Never);
                 audBox.DataBindings.Add("Text", bs, "aud_num");
                 
 
