@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -91,8 +92,26 @@ namespace Kurs
                 cmd.Parameters.AddWithValue("@house_number", house_num);
                 cmd.Parameters.AddWithValue("@year_built", year);
                 cmd.Parameters.AddWithValue("@num_of_floors", num_of_floors);
-                cmd.Parameters.AddWithValue("@comment", CommBox6.Text);
-                cmd.Parameters.AddWithValue("@photo", PhotoBox.Text);
+                //cmd.Parameters.AddWithValue("@p7", CommBox6.Text);
+                if (CommBox6.Text == "" || CommBox6.Text == " ")
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@comment", NpgsqlDbType.Text));
+                    cmd.Parameters[6].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@comment", CommBox6.Text);
+                }
+                //cmd.Parameters.AddWithValue("@p8", PhotoBox.Text);
+                if (PhotoBox.Text == "" || PhotoBox.Text == " ")
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@photo", NpgsqlDbType.Varchar));
+                    cmd.Parameters[7].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@photo", PhotoBox.Text);
+                }
                 cmd.Parameters.AddWithValue("@material", material);
                 cmd.Parameters.AddWithValue("@city", city);
                 cmd.Parameters.AddWithValue("@address", address);
@@ -148,8 +167,26 @@ namespace Kurs
                 cmd.Parameters.AddWithValue("@p4", house_num);
                 cmd.Parameters.AddWithValue("@p5", year);
                 cmd.Parameters.AddWithValue("@p6", num_of_floors);
-                cmd.Parameters.AddWithValue("@p7", CommBox6.Text);
-                cmd.Parameters.AddWithValue("@p8", PhotoBox.Text);
+                //cmd.Parameters.AddWithValue("@p7", CommBox6.Text);
+                if (CommBox6.Text == "" || CommBox6.Text == " ")
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p7", NpgsqlDbType.Text));
+                    cmd.Parameters[6].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p7", CommBox6.Text);
+                }
+                //cmd.Parameters.AddWithValue("@p8", PhotoBox.Text);
+                if (PhotoBox.Text == "" || PhotoBox.Text == " ")
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p8", NpgsqlDbType.Varchar));
+                    cmd.Parameters[7].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p8", PhotoBox.Text);
+                }
                 cmd.Parameters.AddWithValue("@p9", material);
                 cmd.Parameters.AddWithValue("@p10", city);
                 cmd.Parameters.AddWithValue("@p11", address);
