@@ -55,7 +55,10 @@
             this.FloorsBox = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cadastreBox = new System.Windows.Forms.ComboBox();
+            this.cadastreBox = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,6 +139,7 @@
             // 
             // AddressBox
             // 
+            this.AddressBox.Enabled = false;
             this.AddressBox.Location = new System.Drawing.Point(523, 129);
             this.AddressBox.Name = "AddressBox";
             this.AddressBox.Size = new System.Drawing.Size(176, 20);
@@ -143,6 +147,7 @@
             // 
             // CityBox
             // 
+            this.CityBox.Enabled = false;
             this.CityBox.Location = new System.Drawing.Point(523, 103);
             this.CityBox.Name = "CityBox";
             this.CityBox.Size = new System.Drawing.Size(176, 20);
@@ -150,6 +155,7 @@
             // 
             // MaterialBox
             // 
+            this.MaterialBox.Enabled = false;
             this.MaterialBox.Location = new System.Drawing.Point(523, 77);
             this.MaterialBox.Name = "MaterialBox";
             this.MaterialBox.Size = new System.Drawing.Size(176, 20);
@@ -284,17 +290,46 @@
             // 
             // cadastreBox
             // 
-            this.cadastreBox.FormattingEnabled = true;
             this.cadastreBox.Location = new System.Drawing.Point(102, 21);
             this.cadastreBox.Name = "cadastreBox";
-            this.cadastreBox.Size = new System.Drawing.Size(176, 21);
+            this.cadastreBox.Size = new System.Drawing.Size(176, 20);
             this.cadastreBox.TabIndex = 30;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(741, 76);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(163, 21);
+            this.comboBox1.TabIndex = 31;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(741, 102);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(163, 21);
+            this.comboBox2.TabIndex = 32;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(741, 129);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(163, 21);
+            this.comboBox3.TabIndex = 33;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // Insert_Update_Delete_buildings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(976, 450);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.cadastreBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label11);
@@ -360,6 +395,9 @@
         private System.Windows.Forms.TextBox FloorsBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox cadastreBox;
+        private System.Windows.Forms.TextBox cadastreBox;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

@@ -16,12 +16,16 @@ namespace Kurs
         BindingSource bs;
         string mission;
         NpgsqlConnection conn;
-        public Insert_Update_Delete_buildings(BindingSource bs, string mission, NpgsqlConnection conn )
+        List<Dictionary<string, int>> dictionaries;
+        DataSet ds = new DataSet();
+        public Insert_Update_Delete_buildings(BindingSource bs, string mission, NpgsqlConnection conn, List<Dictionary<string, int>> dictionaries, DataSet d)
         {
             InitializeComponent();
             this.bs = bs;
             this.mission = mission;
             this.conn = conn;
+            this.dictionaries = dictionaries;
+            this.ds = d;
         }
 
         private void Insert_Update_Delete_Load(object sender, EventArgs e)
@@ -50,7 +54,7 @@ namespace Kurs
 
             pictureBox1.ImageLocation = PhotoBox.Text;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-
+            PrepairComboboxex();
 
 
         }
@@ -185,6 +189,53 @@ namespace Kurs
         {
             pictureBox1.ImageLocation = PhotoBox.Text;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void PrepairComboboxex()
+        {
+            int count = ds.Tables["material_handbook"].Rows.Count;
+            for (int i = 0; i < count; i++)
+            {
+                comboBox1.Items.Add(ds.Tables["material_handbook"].Rows[i].ItemArray[1]);
+            }
+
+            count = ds.Tables["cities_handbook"].Rows.Count;
+            for (int i = 0; i < count; i++)
+            {
+                comboBox2.Items.Add(ds.Tables["cities_handbook"].Rows[i].ItemArray[1] + " "+ds.Tables["cities_handbook"].Rows[i].ItemArray[2]);
+            }
+
+            count = ds.Tables["streets_handbook"].Rows.Count;
+            for (int i = 0; i < count; i++)
+            {
+                string s;
+                if(!(bool)ds.Tables["streets_handbook"].Rows[i].ItemArray[2])
+                {
+                    s = ds.Tables["streets_handbook"].Rows[i].ItemArray[1] + " " + ds.Tables["streets_handbook"].Rows[i].ItemArray[3];
+                }
+                else
+                {
+                    s = ds.Tables["streets_handbook"].Rows[i].ItemArray[3] + " " + ds.Tables["streets_handbook"].Rows[i].ItemArray[1];
+                }
+                comboBox3.Items.Add(s);
+            }
+
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MaterialBox.Text = (dictionaries[5][comboBox1.Text]).ToString();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CityBox.Text = (dictionaries[1][comboBox2.Text]).ToString();
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddressBox.Text = (dictionaries[0][comboBox3.Text]).ToString();
         }
     }
 }

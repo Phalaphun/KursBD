@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Kurs
 {
@@ -31,6 +32,9 @@ namespace Kurs
         BindingSource bs;
 
         string currentTable = String.Empty;
+        List<Dictionary<string, int>> dictionaries;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -76,6 +80,7 @@ namespace Kurs
             {
                 conn.Close();
             }
+            //Make_Dictionaries();
 
         }
 
@@ -87,6 +92,7 @@ namespace Kurs
             dataGridView1.DataSource = bs;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Make_Dictionaries();
         }
         private void audiencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -214,7 +220,7 @@ namespace Kurs
             switch (currentTable)
             {
                 case "buildings":
-                    Form buildings = new Insert_Update_Delete_buildings(bs, "Insert", conn);
+                    Form buildings = new Insert_Update_Delete_buildings(bs, "Insert", conn, dictionaries,dataSet);
                     buildings.ShowDialog();
                     break;
                 case "audiences":
@@ -245,7 +251,6 @@ namespace Kurs
             }
 
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (currentTable == String.Empty)
@@ -253,7 +258,7 @@ namespace Kurs
             switch (currentTable)
             {
                 case "buildings":
-                    Form buildings = new Insert_Update_Delete_buildings(bs, "Update", conn);
+                    Form buildings = new Insert_Update_Delete_buildings(bs, "Update", conn, dictionaries, dataSet);
                     buildings.ShowDialog();
                     break;
                 case "audiences":
@@ -283,24 +288,79 @@ namespace Kurs
             }
            
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (currentTable == String.Empty)
                 return;
             string command = $"DELETE FROM {currentTable} WHERE {dataGridView1.Columns[0].HeaderText} = {dataGridView1.SelectedRows[0].Cells[0].Value}";
             NpgsqlCommand cmd = new NpgsqlCommand(command, conn);
+            //cmd.ExecuteNonQuery();
         }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             conn.Close();
             this.Close();
         }
-
         private void Form1_Activated(object sender, EventArgs e)
         {
             Refresh();
+        }
+
+
+        private void Make_Dictionaries()
+        {
+            int count = dataSet.Tables["material_handbook"].Rows.Count;
+            Dictionary<string,int> materialsDic = new Dictionary<string,int>();
+            for (int i = 0; i < count; i++)
+            {
+                materialsDic.Add((string)dataSet.Tables["material_handbook"].Rows[i].ItemArray[1], (int)dataSet.Tables["material_handbook"].Rows[i].ItemArray[0]);
+            }
+
+            count = dataSet.Tables["streets_handbook"].Rows.Count;
+            Dictionary<string, int> streetsDic = new Dictionary<string, int>();
+            for (int i = 0; i < count; i++)
+            {
+                string s;
+                if (!(bool)dataSet.Tables["streets_handbook"].Rows[i].ItemArray[2])
+                {
+                    s = dataSet.Tables["streets_handbook"].Rows[i].ItemArray[1] + " " + dataSet.Tables["streets_handbook"].Rows[i].ItemArray[3];
+                }
+                else
+                {
+                    s = dataSet.Tables["streets_handbook"].Rows[i].ItemArray[3] + " " + dataSet.Tables["streets_handbook"].Rows[i].ItemArray[1];
+                }
+
+                streetsDic.Add(s, (int)dataSet.Tables["streets_handbook"].Rows[i].ItemArray[0]);
+            }
+
+            count = dataSet.Tables["cities_handbook"].Rows.Count;
+            Dictionary<string, int> citiesDic = new Dictionary<string, int>();
+            for (int i = 0; i < count; i++)
+            {
+                citiesDic.Add((string)dataSet.Tables["cities_handbook"].Rows[i].ItemArray[1] + " "+(string)dataSet.Tables["cities_handbook"].Rows[i].ItemArray[2], (int)dataSet.Tables["cities_handbook"].Rows[i].ItemArray[0]);
+            }
+
+            count = dataSet.Tables["deans_handbook"].Rows.Count;
+            Dictionary<string, int> deansDic = new Dictionary<string, int>();
+            for (int i = 0; i < count; i++)
+            {
+                deansDic.Add((string)dataSet.Tables["deans_handbook"].Rows[i].ItemArray[1], (int)dataSet.Tables["deans_handbook"].Rows[i].ItemArray[0]);
+            }
+
+            count = dataSet.Tables["materially_responsible"].Rows.Count;
+            Dictionary<string, int> matResDic = new Dictionary<string, int>();
+            for (int i = 0; i < count; i++)
+            {
+                matResDic.Add((string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[2]+" "+ (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[3]+" "+ (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4], (int)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[0]);
+            }
+
+            count = dataSet.Tables["department"].Rows.Count;
+            Dictionary<string, int> DepDic = new Dictionary<string, int>();
+            for (int i = 0; i < count; i++)
+            {
+                DepDic.Add((string)dataSet.Tables["department"].Rows[i].ItemArray[1], (int)dataSet.Tables["department"].Rows[i].ItemArray[0]);
+            }
+            dictionaries = new List<Dictionary<string, int>> { streetsDic, citiesDic, deansDic , matResDic, DepDic, materialsDic };
         }
     }
 }
