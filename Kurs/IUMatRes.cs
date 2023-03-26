@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,7 +98,16 @@ namespace Kurs
 
                 int year = int.Parse(yearBox.Text);
                 int house = int.Parse(houseNumBox.Text);
-                int? flat = int.Parse(flatNumBox.Text);
+
+                int? flat;
+                if (flatNumBox.Text == "" || flatNumBox.Text == " ")
+                {
+                    flat = null;
+                }
+                else
+                {
+                    flat = int.Parse(flatNumBox.Text);
+                }
                 int address = int.Parse(addressBox.Text);
                 int city = int.Parse(cityBox.Text);
 
@@ -105,10 +115,30 @@ namespace Kurs
                 cmd.Parameters.AddWithValue("@p1", int.Parse(idBox.Text));
                 cmd.Parameters.AddWithValue("@p2", year);
                 cmd.Parameters.AddWithValue("@p3", secondNameBox.Text);
+                
                 cmd.Parameters.AddWithValue("@p4", firstNameBox.Text);
-                cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                if (fathersNameBox.Text == "" || fathersNameBox.Text == " ")
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p5", NpgsqlDbType.Varchar));
+                    cmd.Parameters[4].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                }
+                //cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
                 cmd.Parameters.AddWithValue("@p6", house);
-                cmd.Parameters.AddWithValue("@p7", flatNumBox.Text == "" ? null : flat); // null
+
+                //cmd.Parameters.AddWithValue("@p7", flatNumBox.Text == "" ? null : flat); // null
+                if (flat==null)
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p7", NpgsqlDbType.Integer));
+                    cmd.Parameters[6].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p7", fathersNameBox.Text);
+                }
                 cmd.Parameters.AddWithValue("@p8", address);
                 cmd.Parameters.AddWithValue("@p9", city);
                 conn.Open();
@@ -141,7 +171,15 @@ namespace Kurs
 
                 int year = int.Parse(yearBox.Text);
                 int house = int.Parse(houseNumBox.Text);
-                int? flat = int.Parse(flatNumBox.Text);
+                int? flat;
+                if (flatNumBox.Text == "" || flatNumBox.Text == " ")
+                {
+                    flat = null;
+                }
+                else
+                {
+                    flat = int.Parse(flatNumBox.Text);
+                }
                 int address = int.Parse(addressBox.Text);
                 int city = int.Parse(cityBox.Text);
 
@@ -150,9 +188,27 @@ namespace Kurs
                 cmd.Parameters.AddWithValue("@p2", year);
                 cmd.Parameters.AddWithValue("@p3", secondNameBox.Text);
                 cmd.Parameters.AddWithValue("@p4", firstNameBox.Text);
-                cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                //cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                if (fathersNameBox.Text == "" || fathersNameBox.Text == " ")
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p5", NpgsqlDbType.Varchar));
+                    cmd.Parameters[3].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p5", fathersNameBox.Text);
+                }
                 cmd.Parameters.AddWithValue("@p6", house);
-                cmd.Parameters.AddWithValue("@p7", flatNumBox.Text == "" ? null : flat); // null
+                //cmd.Parameters.AddWithValue("@p7", flatNumBox.Text == "" ? null : flat); // null
+                if (flat == null)
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p7", NpgsqlDbType.Integer));
+                    cmd.Parameters[5].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p7", fathersNameBox.Text);
+                }
                 cmd.Parameters.AddWithValue("@p8", address);
                 cmd.Parameters.AddWithValue("@p9", city);
                 conn.Open();

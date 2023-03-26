@@ -368,8 +368,13 @@ namespace Kurs
             Dictionary<string, int> matResDic = new Dictionary<string, int>();
             for (int i = 0; i < count; i++)
             {
-                matResDic.Add((string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[2]+" "+ (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[3]+" "+ (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4], (int)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[0]);
-                keys[3].Add((string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[2] + " " + (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[3] + " " + (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4]);
+                string s2,s3,s4="";
+                s2 = (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[2];
+                s3 = (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[3];
+                object o=null;
+                s4 = (dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4]).GetType()!=s2.GetType()? "": (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4];
+                matResDic.Add(s2+" "+ s3+" "+ s4, (int)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[0]);
+                keys[3].Add(s2 + " " + s3 + " " + s4);
             }
 
             count = dataSet.Tables["department"].Rows.Count;
