@@ -119,5 +119,10 @@ namespace Kurs
                 conn.Close();
             }
         }
+
+        private void PropertyToRemove_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

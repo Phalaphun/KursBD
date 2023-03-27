@@ -43,6 +43,11 @@ namespace Kurs
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            Form log = new LoginForm();
+            
+            if (log.ShowDialog() == DialogResult.Cancel)
+                Close();
+                
             LoadData();  
         }
         private void LoadData()

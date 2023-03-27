@@ -118,6 +118,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "PropertyToRemove";
             this.Text = "PropertyToRemove";
+            this.Load += new System.EventHandler(this.PropertyToRemove_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

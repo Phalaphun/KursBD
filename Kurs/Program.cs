@@ -18,6 +18,7 @@ namespace Kurs
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            //Application.Run(new LoginForm());
         }
         //Select audiences.aud_num, audiences.type, audiences.name_of_building, materially_responsible.second_name, materially_responsible.first_name, materially_responsible.fathers_name  From audiences
         //inner join materially_responsible
