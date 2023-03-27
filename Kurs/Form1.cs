@@ -73,6 +73,7 @@ namespace Kurs
                 materialResAdapter.Fill(dataSet, "materially_responsible");
                 propertyAdapter.Fill(dataSet, "property");
                 streetsAdapter.Fill(dataSet, "streets_handbook");
+                
             }
             catch (Exception ex)
             {
@@ -234,13 +235,16 @@ namespace Kurs
                     dep.ShowDialog();
                     break;
                 case "cities_handbook":
-
+                    Form cit = new IUCities(bs, "Insert", conn);
+                    cit.ShowDialog();
                     break;
                 case "deans_handbook":
-
+                    Form dean = new IUDeans(bs, "Insert", conn);
+                    dean.ShowDialog();
                     break;
                 case "material_handbook":
-
+                    Form mat = new IUMaterial(bs, "Insert", conn);
+                    mat.ShowDialog();
                     break;
                 case "materially_responsible":
                     Form matRes = new IUMatRes(bs, "Insert", conn, dictionaries, keys);
@@ -251,7 +255,8 @@ namespace Kurs
                     pro.ShowDialog();
                     break;
                 case "streets_handbook":
-
+                    Form str = new IUStreets(bs, "Insert", conn);
+                    str.ShowDialog();
                     break;
             }
 
@@ -275,13 +280,16 @@ namespace Kurs
                     dep.ShowDialog();
                     break;
                 case "cities_handbook":
-
+                    Form cit = new IUCities(bs, "Update", conn);
+                    cit.ShowDialog();
                     break;
                 case "deans_handbook":
-
+                    Form dean = new IUDeans(bs, "Update", conn);
+                    dean.ShowDialog();
                     break;
                 case "material_handbook":
-
+                    Form mat = new IUMaterial(bs, "Update", conn);
+                    mat.ShowDialog();
                     break;
                 case "materially_responsible":
                     Form matRes = new IUMatRes(bs, "Update", conn, dictionaries, keys);
@@ -292,7 +300,8 @@ namespace Kurs
                     pro.ShowDialog();
                     break;
                 case "streets_handbook":
-
+                    Form str = new IUStreets(bs, "Update", conn);
+                    str.ShowDialog();
                     break;
             }
            

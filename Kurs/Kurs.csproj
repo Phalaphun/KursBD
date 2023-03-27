@@ -112,11 +112,29 @@
     <Compile Include="IUAud.Designer.cs">
       <DependentUpon>IUAud.cs</DependentUpon>
     </Compile>
+    <Compile Include="IUCities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUCities.Designer.cs">
+      <DependentUpon>IUCities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IUDeans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUDeans.Designer.cs">
+      <DependentUpon>IUDeans.cs</DependentUpon>
+    </Compile>
     <Compile Include="IUDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IUDepartment.Designer.cs">
       <DependentUpon>IUDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IUMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUMaterial.Designer.cs">
+      <DependentUpon>IUMaterial.cs</DependentUpon>
     </Compile>
     <Compile Include="IUMatRes.cs">
       <SubType>Form</SubType>
@@ -130,6 +148,12 @@
     <Compile Include="IUProperty.Designer.cs">
       <DependentUpon>IUProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="IUStreets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUStreets.Designer.cs">
+      <DependentUpon>IUStreets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -141,14 +165,26 @@
     <EmbeddedResource Include="IUAud.resx">
       <DependentUpon>IUAud.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IUCities.resx">
+      <DependentUpon>IUCities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUDeans.resx">
+      <DependentUpon>IUDeans.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IUDepartment.resx">
       <DependentUpon>IUDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUMaterial.resx">
+      <DependentUpon>IUMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IUMatRes.resx">
       <DependentUpon>IUMatRes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IUProperty.resx">
       <DependentUpon>IUProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUStreets.resx">
+      <DependentUpon>IUStreets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
