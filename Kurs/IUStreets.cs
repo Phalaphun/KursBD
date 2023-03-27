@@ -121,7 +121,7 @@ namespace Kurs
             }
         }
 
-        private void addressAttributeBox_TextChanged(object sender, EventArgs e)
+        private void AddressAttributeBox_TextChanged(object sender, EventArgs e)
         {
             exampleBox.Text = checkBox1.Checked ? addressAttributeBox.Text+" "+nameBox.Text : nameBox.Text +" "+ addressAttributeBox.Text;
         }

@@ -15,7 +15,7 @@ namespace Kurs
     
     public partial class Form1 : Form
     {
-        static string connString = "Server=localhost;Port=5432;User ID=postgres;Password=123;Database=University property;";
+        static readonly string connString = "Server=localhost;Port=5432;User ID=postgres;Password=123;Database=University property;";
         NpgsqlConnection conn = new NpgsqlConnection(connString);
 
         NpgsqlDataAdapter buildingAdapter;

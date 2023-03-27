@@ -58,7 +58,7 @@
             this.addressAttributeBox.Name = "addressAttributeBox";
             this.addressAttributeBox.Size = new System.Drawing.Size(155, 20);
             this.addressAttributeBox.TabIndex = 1;
-            this.addressAttributeBox.TextChanged += new System.EventHandler(this.addressAttributeBox_TextChanged);
+            this.addressAttributeBox.TextChanged += new System.EventHandler(this.AddressAttributeBox_TextChanged);
             // 
             // nameBox
             // 
