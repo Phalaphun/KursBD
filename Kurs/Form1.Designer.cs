@@ -42,12 +42,15 @@
             this.citiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.streetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.querryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PropertyToRepriceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TrashPropertyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.asdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asdToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,8 +60,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.tablesToolStripMenuItem,
-            this.querryToolStripMenuItem,
-            this.formsToolStripMenuItem});
+            this.querryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1377, 24);
@@ -161,15 +163,28 @@
             // 
             // querryToolStripMenuItem
             // 
+            this.querryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PropertyToRepriceToolStripMenuItem,
+            this.TrashPropertyToolStripMenuItem,
+            this.asdToolStripMenuItem,
+            this.asdToolStripMenuItem1});
             this.querryToolStripMenuItem.Name = "querryToolStripMenuItem";
             this.querryToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.querryToolStripMenuItem.Text = "Querry";
             // 
-            // formsToolStripMenuItem
+            // PropertyToRepriceToolStripMenuItem
             // 
-            this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
-            this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.formsToolStripMenuItem.Text = "Forms";
+            this.PropertyToRepriceToolStripMenuItem.Name = "PropertyToRepriceToolStripMenuItem";
+            this.PropertyToRepriceToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.PropertyToRepriceToolStripMenuItem.Text = "Имущество и их аудитории";
+            this.PropertyToRepriceToolStripMenuItem.Click += new System.EventHandler(this.PropertyToRepriceToolStripMenuItem_Click);
+            // 
+            // TrashPropertyToolStripMenuItem
+            // 
+            this.TrashPropertyToolStripMenuItem.Name = "TrashPropertyToolStripMenuItem";
+            this.TrashPropertyToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.TrashPropertyToolStripMenuItem.Text = "Имущество под списание";
+            this.TrashPropertyToolStripMenuItem.Click += new System.EventHandler(this.TrashPropertyToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -223,6 +238,18 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // asdToolStripMenuItem
+            // 
+            this.asdToolStripMenuItem.Name = "asdToolStripMenuItem";
+            this.asdToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.asdToolStripMenuItem.Text = "Имущество для переоценки";
+            // 
+            // asdToolStripMenuItem1
+            // 
+            this.asdToolStripMenuItem1.Name = "asdToolStripMenuItem1";
+            this.asdToolStripMenuItem1.Size = new System.Drawing.Size(230, 22);
+            this.asdToolStripMenuItem1.Text = "Полная стоимость";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,7 +280,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem querryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -269,6 +295,10 @@
         private System.Windows.Forms.ToolStripMenuItem materialsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem citiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem streetsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PropertyToRepriceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TrashPropertyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asdToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asdToolStripMenuItem1;
     }
 }
 

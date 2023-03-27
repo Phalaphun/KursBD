@@ -401,5 +401,16 @@ namespace Kurs
             }
             dictionaries = new List<Dictionary<string, int>> { streetsDic, citiesDic, deansDic , matResDic, DepDic, materialsDic };
         }
+
+        private void PropertyToRepriceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form propToReproce = new QuerryPropCost(conn, dictionaries, keys);
+            propToReproce.ShowDialog();
+        }
+
+        private void TrashPropertyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
