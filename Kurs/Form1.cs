@@ -404,7 +404,7 @@ namespace Kurs
 
         private void PropertyToRepriceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form propToReproce = new QuerryPropCost(conn, dictionaries, keys);
+            Form propToReproce = new QuerryPropAud(conn, dictionaries, keys);
             propToReproce.ShowDialog();
         }
 
