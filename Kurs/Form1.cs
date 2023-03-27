@@ -404,13 +404,20 @@ namespace Kurs
 
         private void PropertyToRepriceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form propToReproce = new QuerryPropAud(conn, dictionaries, keys);
-            propToReproce.ShowDialog();
+            Form propAndAud = new QuerryPropAud(conn, dictionaries, keys, "Aud");
+            propAndAud.ShowDialog();
         }
 
         private void TrashPropertyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form propAndAud = new QuerryPropAud(conn, dictionaries, keys, "Rem");
+            propAndAud.ShowDialog();
+        }
 
+        private void asdToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form propAndAud = new QuerryPropAud(conn, dictionaries, keys, "FullCost");
+            propAndAud.ShowDialog();
         }
     }
 }

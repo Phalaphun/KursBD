@@ -1,6 +1,6 @@
 ﻿namespace Kurs
 {
-    partial class QuerryPropCost
+    partial class QuerryPropAud
     {
         /// <summary>
         /// Required designer variable.

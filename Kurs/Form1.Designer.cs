@@ -247,8 +247,9 @@
             // asdToolStripMenuItem1
             // 
             this.asdToolStripMenuItem1.Name = "asdToolStripMenuItem1";
-            this.asdToolStripMenuItem1.Size = new System.Drawing.Size(230, 22);
-            this.asdToolStripMenuItem1.Text = "Полная стоимость";
+            this.asdToolStripMenuItem1.Size = new System.Drawing.Size(242, 22);
+            this.asdToolStripMenuItem1.Text = "Полная стоимость имущества";
+            this.asdToolStripMenuItem1.Click += new System.EventHandler(this.asdToolStripMenuItem1_Click);
             // 
             // Form1
             // 

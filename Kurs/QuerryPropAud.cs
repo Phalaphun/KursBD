@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Kurs
 {
-    public partial class QuerryPropCost : Form
+    public partial class QuerryPropAud : Form
     {
         BindingSource bs = new BindingSource();
         NpgsqlConnection conn;
@@ -20,14 +20,14 @@ namespace Kurs
         List<string>[] keys;
         NpgsqlDataAdapter adapter;
         DataSet dataSet = new DataSet();
-        DataTable dataTable;
-        public QuerryPropCost(NpgsqlConnection conn, List<Dictionary<string, int>> dictionaries, List<string>[] keys)
+        string mission;
+        public QuerryPropAud(NpgsqlConnection conn, List<Dictionary<string, int>> dictionaries, List<string>[] keys, string mission)
         {
             InitializeComponent();
-            this.bs = bs;
             this.conn = conn;
             this.dictionaries = dictionaries;
             this.keys = keys;
+            this.mission = mission;
         }
 
         private void QuerryPropCost_Load(object sender, EventArgs e)
@@ -74,27 +74,27 @@ namespace Kurs
             if(dataSet.Tables.Count != 0){
                 dataSet.Tables.Clear();
             }
-            string querryMatres;
-            if (textBox1.Text==""||textBox1.Text==" ")
-            {
-                querryMatres = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                "materially_responsible.first_name, materially_responsible.fathers_name  " +
-                "from " +
-                "((property inner join audiences on property.aud_num = audiences.aud_num) " +
-                "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
-                $"where audiences.materially_responsible = materially_responsible.id and audiences.materially_responsible = {dictionaries[3][comboBox1.Text]}"; //{dictionaries[3][comboBox1.Text]}
-            }
-            else
-            {
-                querryMatres = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                "materially_responsible.first_name, materially_responsible.fathers_name  " +
-                "from " +
-                "((property inner join audiences on property.aud_num = audiences.aud_num) " +
-                "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
-                $"where audiences.aud_num = \'{textBox1.Text}\' and audiences.materially_responsible = materially_responsible.id";
-            }
+            string querryMatres = ChooseStringQuerry(mission);
+            //if (textBox1.Text==""||textBox1.Text==" ")
+            //{
+            //    querryMatres = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+            //    "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+            //    "materially_responsible.first_name, materially_responsible.fathers_name  " +
+            //    "from " +
+            //    "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+            //    "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+            //    $"where audiences.materially_responsible = materially_responsible.id and audiences.materially_responsible = {dictionaries[3][comboBox1.Text]}"; //{dictionaries[3][comboBox1.Text]}
+            //}
+            //else
+            //{
+            //    querryMatres = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+            //    "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+            //    "materially_responsible.first_name, materially_responsible.fathers_name  " +
+            //    "from " +
+            //    "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+            //    "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+            //    $"where audiences.aud_num = \'{textBox1.Text}\' and audiences.materially_responsible = materially_responsible.id";
+            //}
 
             try
             {
@@ -114,6 +114,145 @@ namespace Kurs
             finally
             {
                 conn.Close();
+            }
+        }
+
+        private string ChooseStringQuerry(string mission)
+        {
+            string s1 = "";
+            switch (mission)
+            {
+                case "Aud":
+                    if (textBox1.Text == "" || textBox1.Text == " ")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.materially_responsible = materially_responsible.id and audiences.materially_responsible = {dictionaries[3][comboBox1.Text]}"; //{dictionaries[3][comboBox1.Text]}
+                    }
+                    else if((comboBox1.Text == "" || comboBox1.Text == " ") && textBox1.Text != "Все")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.aud_num = \'{textBox1.Text}\' and audiences.materially_responsible = materially_responsible.id";
+                    }
+                    else if(textBox1.Text == "Все")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where and audiences.materially_responsible = materially_responsible.id";
+                    }
+                    return s1;
+                case "Rem":
+                    if (textBox1.Text == "" || textBox1.Text == " ")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.materially_responsible = materially_responsible.id and audiences.materially_responsible = {dictionaries[3][comboBox1.Text]} and property.depreciation > 75"; //{dictionaries[3][comboBox1.Text]}
+                    }
+                    else if ((comboBox1.Text == "" || comboBox1.Text == " ") && textBox1.Text !="Все")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.aud_num = \'{textBox1.Text}\' and audiences.materially_responsible = materially_responsible.id and property.depreciation > 75";
+                    }
+                    else if (textBox1.Text == "Все")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.materially_responsible = materially_responsible.id and property.depreciation > 75";
+                    }
+                    return s1;
+                case "ReCost":
+                    if (textBox1.Text == "" || textBox1.Text == " ")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.materially_responsible = materially_responsible.id and audiences.materially_responsible = {dictionaries[3][comboBox1.Text]} and  property.reprice_date < now()"; //{dictionaries[3][comboBox1.Text]}
+                    }
+                    else if ((comboBox1.Text == "" || comboBox1.Text == " ") && textBox1.Text != "Все")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.aud_num = \'{textBox1.Text}\' and audiences.materially_responsible = materially_responsible.id and  property.reprice_date < now()";
+                    }
+                    else if (textBox1.Text == "Все")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.materially_responsible = materially_responsible.id and property.reprice_date < now() ";
+                    }
+                    return s1;
+                case ("FullCost"):
+                    if (textBox1.Text == "" || textBox1.Text == " ")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name, case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as FullCost  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.materially_responsible = materially_responsible.id and audiences.materially_responsible = {dictionaries[3][comboBox1.Text]}"; //{dictionaries[3][comboBox1.Text]}
+                    }
+                    else if ((comboBox1.Text == "" || comboBox1.Text == " ") && textBox1.Text != "Все")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name, case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as FullCost  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.aud_num = \'{textBox1.Text}\' and audiences.materially_responsible = materially_responsible.id";
+                    }
+                    else if (textBox1.Text == "Все")
+                    {
+                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
+                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name, case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as FullCost  " +
+                        "from " +
+                        "((property inner join audiences on property.aud_num = audiences.aud_num) " +
+                        "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
+                        $"where audiences.materially_responsible = materially_responsible.id ";
+                    }
+
+                    return s1;
+                 default: return s1;
+
             }
         }
     }

@@ -156,6 +156,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyToRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertyToRemove.Designer.cs">
+      <DependentUpon>PropertyToRemove.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuerryPropAud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PropertyToRemove.resx">
+      <DependentUpon>PropertyToRemove.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuerryPropAud.resx">
       <DependentUpon>QuerryPropAud.cs</DependentUpon>
     </EmbeddedResource>
