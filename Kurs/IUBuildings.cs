@@ -222,12 +222,14 @@ namespace Kurs
         {
             openFileDialog1.ShowDialog();
             PhotoBox.Text = "Images\\"+openFileDialog1.SafeFileName;
+            pictureBox1.ImageLocation = PhotoBox.Text;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void PhotoBox_Leave(object sender, EventArgs e)
         {
-            pictureBox1.ImageLocation = PhotoBox.Text;
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            //pictureBox1.ImageLocation = PhotoBox.Text;
+            //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void PrepairComboboxex()
