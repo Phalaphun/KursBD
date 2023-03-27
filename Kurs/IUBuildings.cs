@@ -14,11 +14,11 @@ namespace Kurs
 {
     public partial class IUBuildings : Form
     {
-        BindingSource bs;
-        string mission;
-        NpgsqlConnection conn;
-        List<Dictionary<string, int>> dictionaries;
-
+        readonly BindingSource bs;
+        readonly string mission;
+        readonly NpgsqlConnection conn;
+        readonly List<Dictionary<string, int>> dictionaries;
+        readonly
         List<string>[] keys;
         public IUBuildings(BindingSource bs, string mission, NpgsqlConnection conn, List<Dictionary<string, int>> dictionaries, List<string>[] keys)
         {
@@ -62,7 +62,7 @@ namespace Kurs
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
             string command = "UPDATE buildings SET name = @name, square =@square, house_number =@house_number," +
                 "year_built =@year_built, num_of_floors=@num_of_floors, comment=@comment, photo=@photo, material=@material, city=@city, " +
@@ -132,12 +132,12 @@ namespace Kurs
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Button6_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             string command = "INSERT INTO buildings (cadastre, name, square, house_number, year_built, num_of_floors, " +
                 "comment, photo, material, city, address) " +
@@ -242,17 +242,17 @@ namespace Kurs
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             MaterialBox.Text = (dictionaries[5][comboBox1.Text]).ToString();
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             CityBox.Text = (dictionaries[1][comboBox2.Text]).ToString();
         }
 
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddressBox.Text = (dictionaries[0][comboBox3.Text]).ToString();
         }

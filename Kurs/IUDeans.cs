@@ -13,9 +13,9 @@ namespace Kurs
 {
     public partial class IUDeans : Form
     {
-        BindingSource bs;
-        string mission;
-        NpgsqlConnection conn;
+        readonly BindingSource bs;
+        readonly string mission;
+        readonly NpgsqlConnection conn;
         public IUDeans(BindingSource bs, string mission, NpgsqlConnection conn)
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace Kurs
             this.conn = conn;
         }
 
-        private void updateBut_Click(object sender, EventArgs e)
+        private void UpdateBut_Click(object sender, EventArgs e)
         {
             string command = $"UPDATE deans_handbook SET name =@p2 " +
               "where id =@p1";
@@ -53,7 +53,7 @@ namespace Kurs
             }
         }
 
-        private void insertBut_Click(object sender, EventArgs e)
+        private void InsertBut_Click(object sender, EventArgs e)
         {
             string command = $"INSERT INTO deans_handbook (name) VALUES (@p2)";
             try
@@ -81,12 +81,12 @@ namespace Kurs
             }
         }
 
-        private void exitBut_Click(object sender, EventArgs e)
+        private void ExitBut_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void clearBut_Click(object sender, EventArgs e)
+        private void ClearBut_Click(object sender, EventArgs e)
         {
             foreach (Control item in this.Controls)
             {

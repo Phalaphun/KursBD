@@ -16,7 +16,7 @@ namespace Kurs
     public partial class Form1 : Form
     {
         static readonly string connString = "Server=localhost;Port=5432;User ID=postgres;Password=123;Database=University property;";
-        NpgsqlConnection conn = new NpgsqlConnection(connString);
+        readonly NpgsqlConnection conn = new NpgsqlConnection(connString);
 
         NpgsqlDataAdapter buildingAdapter;
         NpgsqlDataAdapter audAdapter;
@@ -92,7 +92,7 @@ namespace Kurs
 
         }
 
-        private void buildingsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void BuildingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "buildings";
             //dataGridView1.DataSource = dataSet.Tables[currentTable];
@@ -102,7 +102,7 @@ namespace Kurs
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //Make_Dictionaries();
         }
-        private void audiencesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AudiencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "audiences";
             bs.DataSource = dataSet.Tables[currentTable];
@@ -111,7 +111,7 @@ namespace Kurs
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PropertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "property";
             bs.DataSource = dataSet.Tables[currentTable];
@@ -120,7 +120,7 @@ namespace Kurs
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void materiallyResponsiblesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MateriallyResponsiblesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "materially_responsible";
             bs.DataSource = dataSet.Tables[currentTable];
@@ -129,7 +129,7 @@ namespace Kurs
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void departmentsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MepartmentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "department";
             bs.DataSource = dataSet.Tables[currentTable];
@@ -138,7 +138,7 @@ namespace Kurs
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void deansToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DeansToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "deans_handbook";
             bs.DataSource = dataSet.Tables[currentTable];
@@ -147,7 +147,7 @@ namespace Kurs
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MaterialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "material_handbook";
             bs.DataSource = dataSet.Tables[currentTable];
@@ -156,7 +156,7 @@ namespace Kurs
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void citiesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CitiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "cities_handbook";
             bs.DataSource = dataSet.Tables[currentTable];
@@ -165,7 +165,7 @@ namespace Kurs
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void streetsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void StreetsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "streets_handbook";
             bs.DataSource = dataSet.Tables[currentTable];
@@ -174,7 +174,7 @@ namespace Kurs
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Refresh_Click(object sender, EventArgs e)
         {
             Refresh1();
         }
@@ -217,11 +217,11 @@ namespace Kurs
             }
             Make_Dictionaries();
         }
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (currentTable == String.Empty)
                 return;
@@ -266,7 +266,7 @@ namespace Kurs
             }
 
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             if (currentTable == String.Empty)
                 return;
@@ -311,7 +311,7 @@ namespace Kurs
             }
            
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             if (currentTable == String.Empty)
                 return;
@@ -319,7 +319,7 @@ namespace Kurs
             NpgsqlCommand cmd = new NpgsqlCommand(command, conn);
             //cmd.ExecuteNonQuery();
         }
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             conn.Close();
             this.Close();
@@ -381,7 +381,7 @@ namespace Kurs
             Dictionary<string, int> matResDic = new Dictionary<string, int>();
             for (int i = 0; i < count; i++)
             {
-                string s2,s3,s4="";
+                string s2,s3,s4;
                 s2 = (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[2];
                 s3 = (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[3];
                 s4 = (dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4]).GetType()!=s2.GetType()? "": (string)dataSet.Tables["materially_responsible"].Rows[i].ItemArray[4];
@@ -419,7 +419,7 @@ namespace Kurs
             propAndAud.ShowDialog();
         }
 
-        private void asdToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void FullCostToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form propAndAud = new QuerryPropAud(conn, dictionaries, keys, "FullCost");
             propAndAud.ShowDialog();

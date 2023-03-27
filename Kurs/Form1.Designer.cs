@@ -44,13 +44,13 @@
             this.querryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PropertyToRepriceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TrashPropertyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.asdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asdToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.insertBut = new System.Windows.Forms.Button();
+            this.updateBut = new System.Windows.Forms.Button();
+            this.detBut = new System.Windows.Forms.Button();
+            this.refreshBut = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +80,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // tablesToolStripMenuItem
             // 
@@ -103,63 +103,63 @@
             this.buildingsToolStripMenuItem.Name = "buildingsToolStripMenuItem";
             this.buildingsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.buildingsToolStripMenuItem.Text = "Buildings";
-            this.buildingsToolStripMenuItem.Click += new System.EventHandler(this.buildingsToolStripMenuItem_Click);
+            this.buildingsToolStripMenuItem.Click += new System.EventHandler(this.BuildingsToolStripMenuItem_Click);
             // 
             // audiencesToolStripMenuItem
             // 
             this.audiencesToolStripMenuItem.Name = "audiencesToolStripMenuItem";
             this.audiencesToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.audiencesToolStripMenuItem.Text = "Audiences";
-            this.audiencesToolStripMenuItem.Click += new System.EventHandler(this.audiencesToolStripMenuItem_Click);
+            this.audiencesToolStripMenuItem.Click += new System.EventHandler(this.AudiencesToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
             this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.propertiesToolStripMenuItem.Text = "Properties";
-            this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
+            this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.PropertiesToolStripMenuItem_Click);
             // 
             // materiallyResponsiblesToolStripMenuItem
             // 
             this.materiallyResponsiblesToolStripMenuItem.Name = "materiallyResponsiblesToolStripMenuItem";
             this.materiallyResponsiblesToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.materiallyResponsiblesToolStripMenuItem.Text = "Materially Responsibles";
-            this.materiallyResponsiblesToolStripMenuItem.Click += new System.EventHandler(this.materiallyResponsiblesToolStripMenuItem_Click);
+            this.materiallyResponsiblesToolStripMenuItem.Click += new System.EventHandler(this.MateriallyResponsiblesToolStripMenuItem_Click);
             // 
             // departmentsToolStripMenuItem
             // 
             this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
             this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.departmentsToolStripMenuItem.Text = "Departments";
-            this.departmentsToolStripMenuItem.Click += new System.EventHandler(this.departmentsToolStripMenuItem_Click);
+            this.departmentsToolStripMenuItem.Click += new System.EventHandler(this.MepartmentsToolStripMenuItem_Click);
             // 
             // deansToolStripMenuItem
             // 
             this.deansToolStripMenuItem.Name = "deansToolStripMenuItem";
             this.deansToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.deansToolStripMenuItem.Text = "Deans";
-            this.deansToolStripMenuItem.Click += new System.EventHandler(this.deansToolStripMenuItem_Click);
+            this.deansToolStripMenuItem.Click += new System.EventHandler(this.DeansToolStripMenuItem_Click);
             // 
             // materialsToolStripMenuItem
             // 
             this.materialsToolStripMenuItem.Name = "materialsToolStripMenuItem";
             this.materialsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.materialsToolStripMenuItem.Text = "Materials";
-            this.materialsToolStripMenuItem.Click += new System.EventHandler(this.materialsToolStripMenuItem_Click);
+            this.materialsToolStripMenuItem.Click += new System.EventHandler(this.MaterialsToolStripMenuItem_Click);
             // 
             // citiesToolStripMenuItem
             // 
             this.citiesToolStripMenuItem.Name = "citiesToolStripMenuItem";
             this.citiesToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.citiesToolStripMenuItem.Text = "Cities";
-            this.citiesToolStripMenuItem.Click += new System.EventHandler(this.citiesToolStripMenuItem_Click);
+            this.citiesToolStripMenuItem.Click += new System.EventHandler(this.CitiesToolStripMenuItem_Click);
             // 
             // streetsToolStripMenuItem
             // 
             this.streetsToolStripMenuItem.Name = "streetsToolStripMenuItem";
             this.streetsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.streetsToolStripMenuItem.Text = "Streets";
-            this.streetsToolStripMenuItem.Click += new System.EventHandler(this.streetsToolStripMenuItem_Click);
+            this.streetsToolStripMenuItem.Click += new System.EventHandler(this.StreetsToolStripMenuItem_Click);
             // 
             // querryToolStripMenuItem
             // 
@@ -175,16 +175,29 @@
             // PropertyToRepriceToolStripMenuItem
             // 
             this.PropertyToRepriceToolStripMenuItem.Name = "PropertyToRepriceToolStripMenuItem";
-            this.PropertyToRepriceToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.PropertyToRepriceToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.PropertyToRepriceToolStripMenuItem.Text = "Имущество и их аудитории";
             this.PropertyToRepriceToolStripMenuItem.Click += new System.EventHandler(this.PropertyToRepriceToolStripMenuItem_Click);
             // 
             // TrashPropertyToolStripMenuItem
             // 
             this.TrashPropertyToolStripMenuItem.Name = "TrashPropertyToolStripMenuItem";
-            this.TrashPropertyToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.TrashPropertyToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.TrashPropertyToolStripMenuItem.Text = "Имущество под списание";
             this.TrashPropertyToolStripMenuItem.Click += new System.EventHandler(this.TrashPropertyToolStripMenuItem_Click);
+            // 
+            // asdToolStripMenuItem
+            // 
+            this.asdToolStripMenuItem.Name = "asdToolStripMenuItem";
+            this.asdToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.asdToolStripMenuItem.Text = "Имущество для переоценки";
+            // 
+            // asdToolStripMenuItem1
+            // 
+            this.asdToolStripMenuItem1.Name = "asdToolStripMenuItem1";
+            this.asdToolStripMenuItem1.Size = new System.Drawing.Size(242, 22);
+            this.asdToolStripMenuItem1.Text = "Полная стоимость имущества";
+            this.asdToolStripMenuItem1.Click += new System.EventHandler(this.FullCostToolStripMenuItem1_Click);
             // 
             // dataGridView1
             // 
@@ -196,70 +209,57 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1353, 250);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValueChanged);
             // 
-            // button1
+            // insertBut
             // 
-            this.button1.Location = new System.Drawing.Point(12, 324);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 39);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Insert";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.insertBut.Location = new System.Drawing.Point(12, 324);
+            this.insertBut.Name = "insertBut";
+            this.insertBut.Size = new System.Drawing.Size(101, 39);
+            this.insertBut.TabIndex = 2;
+            this.insertBut.Text = "Insert";
+            this.insertBut.UseVisualStyleBackColor = true;
+            this.insertBut.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // button2
+            // updateBut
             // 
-            this.button2.Location = new System.Drawing.Point(240, 324);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 39);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.updateBut.Location = new System.Drawing.Point(240, 324);
+            this.updateBut.Name = "updateBut";
+            this.updateBut.Size = new System.Drawing.Size(101, 39);
+            this.updateBut.TabIndex = 3;
+            this.updateBut.Text = "Update";
+            this.updateBut.UseVisualStyleBackColor = true;
+            this.updateBut.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // button3
+            // detBut
             // 
-            this.button3.Location = new System.Drawing.Point(475, 324);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 39);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.detBut.Location = new System.Drawing.Point(475, 324);
+            this.detBut.Name = "detBut";
+            this.detBut.Size = new System.Drawing.Size(101, 39);
+            this.detBut.TabIndex = 4;
+            this.detBut.Text = "Delete";
+            this.detBut.UseVisualStyleBackColor = true;
+            this.detBut.Click += new System.EventHandler(this.Button3_Click);
             // 
-            // button4
+            // refreshBut
             // 
-            this.button4.Location = new System.Drawing.Point(687, 324);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(101, 39);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Refresh";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // asdToolStripMenuItem
-            // 
-            this.asdToolStripMenuItem.Name = "asdToolStripMenuItem";
-            this.asdToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.asdToolStripMenuItem.Text = "Имущество для переоценки";
-            // 
-            // asdToolStripMenuItem1
-            // 
-            this.asdToolStripMenuItem1.Name = "asdToolStripMenuItem1";
-            this.asdToolStripMenuItem1.Size = new System.Drawing.Size(242, 22);
-            this.asdToolStripMenuItem1.Text = "Полная стоимость имущества";
-            this.asdToolStripMenuItem1.Click += new System.EventHandler(this.asdToolStripMenuItem1_Click);
+            this.refreshBut.Location = new System.Drawing.Point(687, 324);
+            this.refreshBut.Name = "refreshBut";
+            this.refreshBut.Size = new System.Drawing.Size(101, 39);
+            this.refreshBut.TabIndex = 5;
+            this.refreshBut.Text = "Refresh";
+            this.refreshBut.UseVisualStyleBackColor = true;
+            this.refreshBut.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1377, 448);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.refreshBut);
+            this.Controls.Add(this.detBut);
+            this.Controls.Add(this.updateBut);
+            this.Controls.Add(this.insertBut);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -282,10 +282,10 @@
         private System.Windows.Forms.ToolStripMenuItem tablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem querryToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button insertBut;
+        private System.Windows.Forms.Button updateBut;
+        private System.Windows.Forms.Button detBut;
+        private System.Windows.Forms.Button refreshBut;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buildingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem audiencesToolStripMenuItem;

@@ -14,9 +14,9 @@ namespace Kurs
 {
     public partial class IUStreets : Form
     {
-        BindingSource bs;
-        string mission;
-        NpgsqlConnection conn;
+        readonly BindingSource bs;
+        readonly string mission;
+        readonly NpgsqlConnection conn;
 
         public IUStreets(BindingSource bs, string mission, NpgsqlConnection conn)
         {
@@ -44,7 +44,7 @@ namespace Kurs
             }
         }
 
-        private void clearBut_Click(object sender, EventArgs e)
+        private void ClearBut_Click(object sender, EventArgs e)
         {
             foreach (Control item in this.Controls)
             {
@@ -55,12 +55,12 @@ namespace Kurs
             }
         }
 
-        private void exitBut_Click(object sender, EventArgs e)
+        private void ExitBut_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void updateBut_Click(object sender, EventArgs e)
+        private void UpdateBut_Click(object sender, EventArgs e)
         {
             string command = $"UPDATE streets_handbook SET address_attribute=@p2, address_order =@p3," +
               "name =@p4 where id =@p1";
@@ -91,7 +91,7 @@ namespace Kurs
             }
         }
 
-        private void insertBut_Click(object sender, EventArgs e)
+        private void InsertBut_Click(object sender, EventArgs e)
         {
             string command = $"INSERT INTO streets_handbook (address_attribute,address_order,name)" +
                 $" VALUES (@p2,@p3,@p4)";
@@ -126,12 +126,12 @@ namespace Kurs
             exampleBox.Text = checkBox1.Checked ? addressAttributeBox.Text+" "+nameBox.Text : nameBox.Text +" "+ addressAttributeBox.Text;
         }
 
-        private void nameBox_TextChanged(object sender, EventArgs e)
+        private void NameBox_TextChanged(object sender, EventArgs e)
         {
             exampleBox.Text = checkBox1.Checked ? addressAttributeBox.Text + " " + nameBox.Text : nameBox.Text + " " + addressAttributeBox.Text;
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             exampleBox.Text = checkBox1.Checked ? addressAttributeBox.Text + " " + nameBox.Text : nameBox.Text + " " + addressAttributeBox.Text;
         }

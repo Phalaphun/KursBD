@@ -182,7 +182,7 @@
             this.updateBut.TabIndex = 15;
             this.updateBut.Text = "Update";
             this.updateBut.UseVisualStyleBackColor = true;
-            this.updateBut.Click += new System.EventHandler(this.updateBut_Click);
+            this.updateBut.Click += new System.EventHandler(this.UpdateBut_Click);
             // 
             // insertBut
             // 
@@ -192,7 +192,7 @@
             this.insertBut.TabIndex = 16;
             this.insertBut.Text = "Insert";
             this.insertBut.UseVisualStyleBackColor = true;
-            this.insertBut.Click += new System.EventHandler(this.insertBut_Click);
+            this.insertBut.Click += new System.EventHandler(this.InsertBut_Click);
             // 
             // exitBut
             // 
@@ -202,7 +202,7 @@
             this.exitBut.TabIndex = 17;
             this.exitBut.Text = "Exit";
             this.exitBut.UseVisualStyleBackColor = true;
-            this.exitBut.Click += new System.EventHandler(this.exitBut_Click);
+            this.exitBut.Click += new System.EventHandler(this.ExitBut_Click);
             // 
             // clearBut
             // 
@@ -212,7 +212,7 @@
             this.clearBut.TabIndex = 18;
             this.clearBut.Text = "Clear";
             this.clearBut.UseVisualStyleBackColor = true;
-            this.clearBut.Click += new System.EventHandler(this.clearBut_Click);
+            this.clearBut.Click += new System.EventHandler(this.ClearBut_Click);
             // 
             // label7
             // 
@@ -248,7 +248,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(159, 21);
             this.comboBox1.TabIndex = 22;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -257,7 +257,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(159, 21);
             this.comboBox2.TabIndex = 23;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_SelectedIndexChanged);
             // 
             // IUMatRes
             // 

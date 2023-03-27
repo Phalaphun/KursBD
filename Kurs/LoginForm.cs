@@ -12,7 +12,7 @@ namespace Kurs
 {
     public partial class LoginForm : Form
     {
-        static string connString = "Server=localhost;Port=5432;User ID=postgres;Password=123;Database=University property;";
+        readonly static string connString = "Server=localhost;Port=5432;User ID=postgres;Password=123;Database=University property;";
 
         public LoginForm()
         {
@@ -20,7 +20,7 @@ namespace Kurs
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             NpgsqlConnection conn = new NpgsqlConnection(connString);
             NpgsqlDataAdapter adapter;

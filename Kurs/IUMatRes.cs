@@ -15,10 +15,11 @@ namespace Kurs
 {
     public partial class IUMatRes : Form
     {
-        BindingSource bs;
-        string mission;
-        NpgsqlConnection conn; List<Dictionary<string, int>> dictionaries;
-        List<string>[] keys;
+        readonly BindingSource bs;
+        readonly string mission;
+        readonly NpgsqlConnection conn; 
+        readonly List<Dictionary<string, int>> dictionaries;
+        readonly List<string>[] keys;
         public IUMatRes(BindingSource bs, string mission, NpgsqlConnection conn, List<Dictionary<string, int>> dictionaries, List<string>[] keys)
         {
             InitializeComponent();
@@ -59,20 +60,20 @@ namespace Kurs
             comboBox2.Items.AddRange(keys[1].ToArray());
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             addressBox.Text= (dictionaries[0][comboBox1.Text]).ToString();
         }
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             cityBox.Text = dictionaries[1][comboBox2.Text].ToString();
         }
-        private void exitBut_Click(object sender, EventArgs e)
+        private void ExitBut_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void clearBut_Click(object sender, EventArgs e)
+        private void ClearBut_Click(object sender, EventArgs e)
         {
             foreach (Control item in this.Controls)
             {
@@ -83,7 +84,7 @@ namespace Kurs
             }
         }
 
-        private void updateBut_Click(object sender, EventArgs e)
+        private void UpdateBut_Click(object sender, EventArgs e)
         {
             string command = $"UPDATE materially_responsible SET start_year=@p2, second_name =@p3," +
               "first_name =@p4, fathers_name=@p5, num_of_house=@p6, num_of_flat=@p7, address=@p8, city=@p9 where id =@p1";
@@ -156,7 +157,7 @@ namespace Kurs
             }
         }
 
-        private void insertBut_Click(object sender, EventArgs e)
+        private void InsertBut_Click(object sender, EventArgs e)
         {
             string command = $"INSERT INTO materially_responsible (start_year,second_name,first_name,fathers_name,num_of_house,num_of_flat,address,city)" +
               "VALUES (@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9)";

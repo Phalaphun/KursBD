@@ -66,7 +66,7 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(155, 20);
             this.nameBox.TabIndex = 3;
-            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
+            this.nameBox.TextChanged += new System.EventHandler(this.NameBox_TextChanged);
             // 
             // exampleBox
             // 
@@ -83,7 +83,7 @@
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 5;
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // label1
             // 
@@ -138,7 +138,7 @@
             this.updateBut.TabIndex = 11;
             this.updateBut.Text = "Update";
             this.updateBut.UseVisualStyleBackColor = true;
-            this.updateBut.Click += new System.EventHandler(this.updateBut_Click);
+            this.updateBut.Click += new System.EventHandler(this.UpdateBut_Click);
             // 
             // insertBut
             // 
@@ -148,7 +148,7 @@
             this.insertBut.TabIndex = 12;
             this.insertBut.Text = "Insert";
             this.insertBut.UseVisualStyleBackColor = true;
-            this.insertBut.Click += new System.EventHandler(this.insertBut_Click);
+            this.insertBut.Click += new System.EventHandler(this.InsertBut_Click);
             // 
             // exitBut
             // 
@@ -158,7 +158,7 @@
             this.exitBut.TabIndex = 13;
             this.exitBut.Text = "Exit";
             this.exitBut.UseVisualStyleBackColor = true;
-            this.exitBut.Click += new System.EventHandler(this.exitBut_Click);
+            this.exitBut.Click += new System.EventHandler(this.ExitBut_Click);
             // 
             // clearBut
             // 
@@ -168,7 +168,7 @@
             this.clearBut.TabIndex = 14;
             this.clearBut.Text = "Clear";
             this.clearBut.UseVisualStyleBackColor = true;
-            this.clearBut.Click += new System.EventHandler(this.clearBut_Click);
+            this.clearBut.Click += new System.EventHandler(this.ClearBut_Click);
             // 
             // IUStreets
             // 

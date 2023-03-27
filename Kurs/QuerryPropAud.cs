@@ -14,13 +14,13 @@ namespace Kurs
 {
     public partial class QuerryPropAud : Form
     {
-        BindingSource bs = new BindingSource();
-        NpgsqlConnection conn;
-        List<Dictionary<string, int>> dictionaries;
-        List<string>[] keys;
+        readonly BindingSource bs = new BindingSource();
+        readonly NpgsqlConnection conn;
+        readonly List<Dictionary<string, int>> dictionaries;
+        readonly List<string>[] keys;
         NpgsqlDataAdapter adapter;
-        DataSet dataSet = new DataSet();
-        string mission;
+        readonly DataSet dataSet = new DataSet();
+        readonly string mission;
         public QuerryPropAud(NpgsqlConnection conn, List<Dictionary<string, int>> dictionaries, List<string>[] keys, string mission)
         {
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace Kurs
             comboBox1.Items.AddRange(keys[3].ToArray());
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             if(comboBox1.Text==""||comboBox1.Text==" ")
             {
@@ -52,7 +52,7 @@ namespace Kurs
             }
         }
 
-        private void comboBox1_TextChanged(object sender, EventArgs e)
+        private void ComboBox1_TextChanged(object sender, EventArgs e)
         {
             if (comboBox1.Text == "" || comboBox1.Text == " ")
             {
