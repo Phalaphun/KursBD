@@ -221,7 +221,7 @@ namespace Kurs
         private void PhotoBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             openFileDialog1.ShowDialog();
-            PhotoBox.Text = openFileDialog1.FileName;
+            PhotoBox.Text = "Images\\"+openFileDialog1.SafeFileName;
         }
 
         private void PhotoBox_Leave(object sender, EventArgs e)
