@@ -42,22 +42,20 @@ namespace Kurs
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            if(comboBox1.Text==""||comboBox1.Text==" ")
-            {
-                comboBox1.Enabled = false; textBox1.Enabled = true;
-            }
-            if(textBox1.Text==""||textBox1.Text==" ")
-            {
-                comboBox1.Enabled = true; textBox1.Enabled = false;
-            }
-            if ((comboBox1.Text == "" || comboBox1.Text == " ") && (textBox1.Text == "" || textBox1.Text == " "))
-            {
-                comboBox1.Enabled = true;
-                textBox1.Enabled = true;
-            }
+            DisableAnotherBox();
+            if(textBox1.Text == "" || textBox1.Text==" ")
+                comboBox1.Text = "";
         }
 
         private void ComboBox1_TextChanged(object sender, EventArgs e)
+        {
+            DisableAnotherBox();
+            if (comboBox1.Text == "" || comboBox1.Text == " ")
+                textBox1.Text = "";
+            
+        }
+
+        private void DisableAnotherBox()
         {
             if (comboBox1.Text == "" || comboBox1.Text == " ")
             {
@@ -109,6 +107,13 @@ namespace Kurs
                 adapter.Fill(dataSet,"querry");
                 bs.DataSource = dataSet.Tables["querry"];
                 dataGridView1.DataSource = bs;
+                switch(mission)
+                {
+                    case "Aud":
+                        if(String.IsNullOrEmpty(comboBox1.Text))
+                            comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length-3].ToString() +" "+ dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString() + " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
+                        break;
+                }
 
             }
             catch (Exception ex)
@@ -130,9 +135,9 @@ namespace Kurs
                 case "Aud":
                     if (textBox1.Text == "" || textBox1.Text == " ")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия материально ответственного\", " +
+                        "materially_responsible.first_name as \"Имя материально ответственного\", materially_responsible.fathers_name as \"Отчество материально ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -228,7 +233,8 @@ namespace Kurs
                     {
                         s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
                         "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name, case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as FullCost  " +
+                        "materially_responsible.first_name, materially_responsible.fathers_name, " +
+                        "case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as FullCost  " + //Добавление вычисляемого поля
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +

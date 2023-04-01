@@ -154,9 +154,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(453, 52);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Тип";
+            this.label5.Text = "Назначение";
             // 
             // label6
             // 

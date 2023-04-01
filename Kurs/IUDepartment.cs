@@ -80,13 +80,13 @@ namespace Kurs
         {
             if (mission == "Update")
             {
-                idBox.DataBindings.Add("Text", bs, "id");
-                nameBox.DataBindings.Add("Text", bs, "name");
-                secondNameBox.DataBindings.Add("Text", bs, "second_name");
-                firstNameBox.DataBindings.Add("Text", bs, "first_name");
-                fathersNameBox.DataBindings.Add("Text", bs, "fathers_name");
-                deanBox.DataBindings.Add("Text", bs, "deans", true, DataSourceUpdateMode.Never);
-                telBox.DataBindings.Add("Text", bs, "phone", true, DataSourceUpdateMode.Never);
+                idBox.DataBindings.Add("Text", bs, "ID");
+                nameBox.DataBindings.Add("Text", bs, "Название");
+                secondNameBox.DataBindings.Add("Text", bs, "Фамилия заведующего");
+                firstNameBox.DataBindings.Add("Text", bs, "Имя заведующего");
+                fathersNameBox.DataBindings.Add("Text", bs, "Отчество заведующего");
+                deanBox.DataBindings.Add("Text", bs, "Деканат или Директорат", true, DataSourceUpdateMode.Never);
+                telBox.DataBindings.Add("Text", bs, "Телефон", true, DataSourceUpdateMode.Never);
 
                 insertBut.Enabled = false; insertBut.Visible = false;
                 clearBut.Enabled = false; clearBut.Visible = false;
@@ -163,6 +163,7 @@ namespace Kurs
 
         private void PrepairingComboboxes()
         {
+            comboBox1.Text = "Выберите новое значение";
             comboBox1.Items.AddRange(keys[2].ToArray());
         }
 

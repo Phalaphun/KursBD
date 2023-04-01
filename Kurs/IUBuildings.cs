@@ -35,17 +35,17 @@ namespace Kurs
         {
             if (mission == "Update")
             {
-                cadastreBox.DataBindings.Add("Text", bs, "cadastre");
-                NameBox.DataBindings.Add("Text", bs, "name");
-                SquareBox.DataBindings.Add("Text", bs, "square", true, DataSourceUpdateMode.Never);
-                HouseNumBox.DataBindings.Add("Text", bs, "house_number", true, DataSourceUpdateMode.Never);
-                BuildBox.DataBindings.Add("Text", bs, "year_built", true, DataSourceUpdateMode.Never);
-                FloorsBox.DataBindings.Add("Text", bs, "num_of_floors", true, DataSourceUpdateMode.Never);
-                CommBox6.DataBindings.Add("Text", bs, "comment");
-                PhotoBox.DataBindings.Add("Text", bs, "photo");
-                MaterialBox.DataBindings.Add("Text", bs, "material", true, DataSourceUpdateMode.Never);
-                CityBox.DataBindings.Add("Text", bs, "city", true, DataSourceUpdateMode.Never);
-                AddressBox.DataBindings.Add("Text", bs, "address", true, DataSourceUpdateMode.Never); 
+                cadastreBox.DataBindings.Add("Text", bs, "Кадастр");
+                NameBox.DataBindings.Add("Text", bs, "Название");
+                SquareBox.DataBindings.Add("Text", bs, "Площадь", true, DataSourceUpdateMode.Never);
+                HouseNumBox.DataBindings.Add("Text", bs, "Номер здания", true, DataSourceUpdateMode.Never);
+                BuildBox.DataBindings.Add("Text", bs, "Год постройки", true, DataSourceUpdateMode.Never);
+                FloorsBox.DataBindings.Add("Text", bs, "Число этажей", true, DataSourceUpdateMode.Never);
+                CommBox6.DataBindings.Add("Text", bs, "Комментарий");
+                PhotoBox.DataBindings.Add("Text", bs, "Фото");
+                MaterialBox.DataBindings.Add("Text", bs, "Материал", true, DataSourceUpdateMode.Never);
+                CityBox.DataBindings.Add("Text", bs, "Город", true, DataSourceUpdateMode.Never);
+                AddressBox.DataBindings.Add("Text", bs, "Адрес", true, DataSourceUpdateMode.Never); 
                 
                 
                 button5.Enabled = false; button5.Visible = false;
@@ -234,6 +234,9 @@ namespace Kurs
 
         private void PrepairComboboxex()
         {
+            comboBox1.Text = "Выберите новое значение";
+            comboBox2.Text = "Выберите новое значение";
+            comboBox3.Text = "Выберите новое значение";
             
             comboBox1.Items.AddRange(keys[5].ToArray());
 

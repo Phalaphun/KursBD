@@ -29,9 +29,9 @@ namespace Kurs
         {
             if (mission == "Update")
             {
-                idBox.DataBindings.Add("Text", bs, "id");
-                typeBox.DataBindings.Add("Text", bs, "type", true, DataSourceUpdateMode.Never);
-                nameBox.DataBindings.Add("Text", bs, "name", true, DataSourceUpdateMode.Never);
+                idBox.DataBindings.Add("Text", bs, "ID");
+                typeBox.DataBindings.Add("Text", bs, "Тип", true, DataSourceUpdateMode.Never);
+                nameBox.DataBindings.Add("Text", bs, "Название", true, DataSourceUpdateMode.Never);
 
                 insertBut.Enabled = false; insertBut.Visible = false;
                 clearBut.Enabled = false; clearBut.Visible = false;

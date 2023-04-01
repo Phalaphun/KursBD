@@ -31,16 +31,16 @@ namespace Kurs
         {
             if (mission == "Update")
             {
-                idBox.DataBindings.Add("Text", bs, "id");
-                nameBox.DataBindings.Add("Text", bs, "name");
-                deliveryBox.DataBindings.Add("Text", bs, "delivery_date", true, DataSourceUpdateMode.Never);
-                costPerOneBox.DataBindings.Add("Text", bs, "cost_per_one", true, DataSourceUpdateMode.Never);
-                reDateBox.DataBindings.Add("Text", bs, "reprice_date", true, DataSourceUpdateMode.Never);
-                reCostBox.DataBindings.Add("Text", bs, "cost_after_reprice", true, DataSourceUpdateMode.Never);
-                lifetimeBox.DataBindings.Add("Text", bs, "lifetime", true, DataSourceUpdateMode.Never);
-                amountBox.DataBindings.Add("Text", bs, "amount", true, DataSourceUpdateMode.Never);
-                deprecationBox.DataBindings.Add("Text", bs, "depreciation", true, DataSourceUpdateMode.Never);
-                audBox.DataBindings.Add("Text", bs, "aud_num");
+                idBox.DataBindings.Add("Text", bs, "ID");
+                nameBox.DataBindings.Add("Text", bs, "Название");
+                deliveryBox.DataBindings.Add("Text", bs, "Дата поставки", true, DataSourceUpdateMode.Never);
+                costPerOneBox.DataBindings.Add("Text", bs, "Стоимость за единицу", true, DataSourceUpdateMode.Never);
+                reDateBox.DataBindings.Add("Text", bs, "Дата переоценки", true, DataSourceUpdateMode.Never);
+                reCostBox.DataBindings.Add("Text", bs, "Стоимость после переоценки", true, DataSourceUpdateMode.Never);
+                lifetimeBox.DataBindings.Add("Text", bs, "Срок эксплуатации", true, DataSourceUpdateMode.Never);
+                amountBox.DataBindings.Add("Text", bs, "Количество", true, DataSourceUpdateMode.Never);
+                deprecationBox.DataBindings.Add("Text", bs, "Износ", true, DataSourceUpdateMode.Never);
+                audBox.DataBindings.Add("Text", bs, "Номер аудитории");
                 
 
 

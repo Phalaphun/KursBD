@@ -34,15 +34,15 @@ namespace Kurs
         {
             if (mission == "Update")
             {
-                idBox.DataBindings.Add("Text", bs, "id");
-                yearBox.DataBindings.Add("Text", bs, "start_year", true, DataSourceUpdateMode.Never);
-                secondNameBox.DataBindings.Add("Text", bs, "second_name");
-                firstNameBox.DataBindings.Add("Text", bs, "first_name");
-                fathersNameBox.DataBindings.Add("Text", bs, "fathers_name");
-                houseNumBox.DataBindings.Add("Text", bs, "num_of_house", true, DataSourceUpdateMode.Never);
-                flatNumBox.DataBindings.Add("Text", bs, "num_of_flat", true, DataSourceUpdateMode.Never);
-                addressBox.DataBindings.Add("Text", bs, "address", true, DataSourceUpdateMode.Never);
-                cityBox.DataBindings.Add("Text", bs, "city", true, DataSourceUpdateMode.Never);
+                idBox.DataBindings.Add("Text", bs, "ID");
+                yearBox.DataBindings.Add("Text", bs, "Год начала работы", true, DataSourceUpdateMode.Never);
+                secondNameBox.DataBindings.Add("Text", bs, "Фамилия ответственного");
+                firstNameBox.DataBindings.Add("Text", bs, "Имя ответственного");
+                fathersNameBox.DataBindings.Add("Text", bs, "Отчество ответственного");
+                houseNumBox.DataBindings.Add("Text", bs, "Номер дома", true, DataSourceUpdateMode.Never);
+                flatNumBox.DataBindings.Add("Text", bs, "Номер квартиры", true, DataSourceUpdateMode.Never);
+                addressBox.DataBindings.Add("Text", bs, "Адрес", true, DataSourceUpdateMode.Never);
+                cityBox.DataBindings.Add("Text", bs, "Город", true, DataSourceUpdateMode.Never);
 
                 insertBut.Enabled = false; insertBut.Visible = false;
                 clearBut.Enabled = false; clearBut.Visible = false;
@@ -56,6 +56,8 @@ namespace Kurs
 
         private void PrepairingComboboxes()
         {
+            comboBox1.Text = "Выберите новое значение";
+            comboBox2.Text = "Выберите новое значение";
             comboBox1.Items.AddRange(keys[0].ToArray());
             comboBox2.Items.AddRange(keys[1].ToArray());
         }

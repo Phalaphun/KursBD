@@ -35,15 +35,15 @@ namespace Kurs
         {
             if (mission == "Update")
             {
-                AudBox.DataBindings.Add("Text", bs, "aud_num");
-                SquareBox.DataBindings.Add("Text", bs, "square", true, DataSourceUpdateMode.Never);
-                WinBox.DataBindings.Add("Text", bs, "windows_nums", true, DataSourceUpdateMode.Never);
+                AudBox.DataBindings.Add("Text", bs, "Номер аудитории");
+                SquareBox.DataBindings.Add("Text", bs, "Площадь", true, DataSourceUpdateMode.Never);
+                WinBox.DataBindings.Add("Text", bs, "Число окон", true, DataSourceUpdateMode.Never);
                 //BatteryBox.DataBindings.Add("Text", bs, "battery_nums");
-                BatteryBox.DataBindings.Add("Text", bs, "battery_nums", true, DataSourceUpdateMode.Never);
-                typeBox.DataBindings.Add("Text", bs, "type");
-                buildBox.DataBindings.Add("Text", bs, "name_of_building");
-                matResBox.DataBindings.Add("Text", bs, "materially_responsible", true, DataSourceUpdateMode.Never);
-                depBox.DataBindings.Add("Text", bs, "department", true, DataSourceUpdateMode.Never);
+                BatteryBox.DataBindings.Add("Text", bs, "Число батарей", true, DataSourceUpdateMode.Never);
+                typeBox.DataBindings.Add("Text", bs, "Назначение");
+                buildBox.DataBindings.Add("Text", bs, "Кадастр здания");
+                matResBox.DataBindings.Add("Text", bs, "Материально ответственный", true, DataSourceUpdateMode.Never);
+                depBox.DataBindings.Add("Text", bs, "Кафедра", true, DataSourceUpdateMode.Never);
 
 
 
@@ -60,6 +60,10 @@ namespace Kurs
 
         private void PrepairComboboxex()
         {
+            comboBox1.Text = "Выберите новое значение";
+            comboBox2.Text = "Выберите новое значение";
+            comboBox3.Text = "Выберите новое значение";
+
             comboBox1.Items.AddRange(keys[6].ToArray());
             comboBox2.Items.AddRange(keys[3].ToArray());
             comboBox3.Items.AddRange(keys[4].ToArray());

@@ -52,35 +52,35 @@
             // idBox
             // 
             this.idBox.Enabled = false;
-            this.idBox.Location = new System.Drawing.Point(141, 41);
+            this.idBox.Location = new System.Drawing.Point(147, 41);
             this.idBox.Name = "idBox";
             this.idBox.Size = new System.Drawing.Size(184, 20);
             this.idBox.TabIndex = 0;
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(141, 67);
+            this.nameBox.Location = new System.Drawing.Point(147, 67);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(184, 20);
             this.nameBox.TabIndex = 1;
             // 
             // secondNameBox
             // 
-            this.secondNameBox.Location = new System.Drawing.Point(141, 93);
+            this.secondNameBox.Location = new System.Drawing.Point(147, 93);
             this.secondNameBox.Name = "secondNameBox";
             this.secondNameBox.Size = new System.Drawing.Size(184, 20);
             this.secondNameBox.TabIndex = 2;
             // 
             // firstNameBox
             // 
-            this.firstNameBox.Location = new System.Drawing.Point(141, 119);
+            this.firstNameBox.Location = new System.Drawing.Point(147, 119);
             this.firstNameBox.Name = "firstNameBox";
             this.firstNameBox.Size = new System.Drawing.Size(184, 20);
             this.firstNameBox.TabIndex = 3;
             // 
             // fathersNameBox
             // 
-            this.fathersNameBox.Location = new System.Drawing.Point(141, 145);
+            this.fathersNameBox.Location = new System.Drawing.Point(147, 145);
             this.fathersNameBox.Name = "fathersNameBox";
             this.fathersNameBox.Size = new System.Drawing.Size(184, 20);
             this.fathersNameBox.TabIndex = 4;
@@ -88,14 +88,14 @@
             // deanBox
             // 
             this.deanBox.Enabled = false;
-            this.deanBox.Location = new System.Drawing.Point(141, 197);
+            this.deanBox.Location = new System.Drawing.Point(147, 197);
             this.deanBox.Name = "deanBox";
             this.deanBox.Size = new System.Drawing.Size(184, 20);
             this.deanBox.TabIndex = 5;
             // 
             // telBox
             // 
-            this.telBox.Location = new System.Drawing.Point(141, 171);
+            this.telBox.Location = new System.Drawing.Point(147, 171);
             this.telBox.Name = "telBox";
             this.telBox.Size = new System.Drawing.Size(184, 20);
             this.telBox.TabIndex = 6;
@@ -150,9 +150,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(7, 200);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.Size = new System.Drawing.Size(136, 13);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Деканат";
+            this.label6.Text = "Деканат или Директорат";
             // 
             // label7
             // 

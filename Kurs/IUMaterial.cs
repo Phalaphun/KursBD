@@ -28,8 +28,8 @@ namespace Kurs
         {
             if (mission == "Update")
             {
-                idBox.DataBindings.Add("Text", bs, "id");
-                nameBox.DataBindings.Add("Text", bs, "material", true, DataSourceUpdateMode.Never);
+                idBox.DataBindings.Add("Text", bs, "ID");
+                nameBox.DataBindings.Add("Text", bs, "Материал", true, DataSourceUpdateMode.Never);
 
                 insertBut.Enabled = false; insertBut.Visible = false;
                 clearBut.Enabled = false; clearBut.Visible = false;

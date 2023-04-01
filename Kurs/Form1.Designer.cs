@@ -101,63 +101,63 @@
             // buildingsToolStripMenuItem
             // 
             this.buildingsToolStripMenuItem.Name = "buildingsToolStripMenuItem";
-            this.buildingsToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.buildingsToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.buildingsToolStripMenuItem.Text = "Здания";
             this.buildingsToolStripMenuItem.Click += new System.EventHandler(this.BuildingsToolStripMenuItem_Click);
             // 
             // audiencesToolStripMenuItem
             // 
             this.audiencesToolStripMenuItem.Name = "audiencesToolStripMenuItem";
-            this.audiencesToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.audiencesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.audiencesToolStripMenuItem.Text = "Аудитории";
             this.audiencesToolStripMenuItem.Click += new System.EventHandler(this.AudiencesToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.propertiesToolStripMenuItem.Text = "Имущество";
             this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.PropertiesToolStripMenuItem_Click);
             // 
             // materiallyResponsiblesToolStripMenuItem
             // 
             this.materiallyResponsiblesToolStripMenuItem.Name = "materiallyResponsiblesToolStripMenuItem";
-            this.materiallyResponsiblesToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.materiallyResponsiblesToolStripMenuItem.Text = "Материально отвестсвенные";
+            this.materiallyResponsiblesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.materiallyResponsiblesToolStripMenuItem.Text = "Материально ответственные";
             this.materiallyResponsiblesToolStripMenuItem.Click += new System.EventHandler(this.MateriallyResponsiblesToolStripMenuItem_Click);
             // 
             // departmentsToolStripMenuItem
             // 
             this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
-            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.departmentsToolStripMenuItem.Text = "Кафедры";
             this.departmentsToolStripMenuItem.Click += new System.EventHandler(this.MepartmentsToolStripMenuItem_Click);
             // 
             // deansToolStripMenuItem
             // 
             this.deansToolStripMenuItem.Name = "deansToolStripMenuItem";
-            this.deansToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.deansToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.deansToolStripMenuItem.Text = "Деканаты и Директораты";
             this.deansToolStripMenuItem.Click += new System.EventHandler(this.DeansToolStripMenuItem_Click);
             // 
             // materialsToolStripMenuItem
             // 
             this.materialsToolStripMenuItem.Name = "materialsToolStripMenuItem";
-            this.materialsToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.materialsToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.materialsToolStripMenuItem.Text = "Материал";
             this.materialsToolStripMenuItem.Click += new System.EventHandler(this.MaterialsToolStripMenuItem_Click);
             // 
             // citiesToolStripMenuItem
             // 
             this.citiesToolStripMenuItem.Name = "citiesToolStripMenuItem";
-            this.citiesToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.citiesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.citiesToolStripMenuItem.Text = "Города";
             this.citiesToolStripMenuItem.Click += new System.EventHandler(this.CitiesToolStripMenuItem_Click);
             // 
             // streetsToolStripMenuItem
             // 
             this.streetsToolStripMenuItem.Name = "streetsToolStripMenuItem";
-            this.streetsToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.streetsToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.streetsToolStripMenuItem.Text = "Улицы";
             this.streetsToolStripMenuItem.Click += new System.EventHandler(this.StreetsToolStripMenuItem_Click);
             // 
@@ -191,6 +191,7 @@
             this.asdToolStripMenuItem.Name = "asdToolStripMenuItem";
             this.asdToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.asdToolStripMenuItem.Text = "Имущество для переоценки";
+            this.asdToolStripMenuItem.Click += new System.EventHandler(this.asdToolStripMenuItem_Click);
             // 
             // asdToolStripMenuItem1
             // 

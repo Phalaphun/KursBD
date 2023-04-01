@@ -30,10 +30,10 @@ namespace Kurs
         {
             if (mission == "Update")
             {
-                idBox.DataBindings.Add("Text", bs, "id");
-                addressAttributeBox.DataBindings.Add("Text", bs, "address_attribute", true, DataSourceUpdateMode.Never);
-                checkBox1.DataBindings.Add("Checked", bs, "address_order", true, DataSourceUpdateMode.Never);
-                nameBox.DataBindings.Add("Text", bs, "name", true, DataSourceUpdateMode.Never);
+                idBox.DataBindings.Add("Text", bs, "ID");
+                addressAttributeBox.DataBindings.Add("Text", bs, "Тип", true, DataSourceUpdateMode.Never);
+                checkBox1.DataBindings.Add("Checked", bs, "Порядок", true, DataSourceUpdateMode.Never);
+                nameBox.DataBindings.Add("Text", bs, "Название", true, DataSourceUpdateMode.Never);
 
                 insertBut.Enabled = false; insertBut.Visible = false;
                 clearBut.Enabled = false; clearBut.Visible = false;
@@ -123,17 +123,17 @@ namespace Kurs
 
         private void AddressAttributeBox_TextChanged(object sender, EventArgs e)
         {
-            exampleBox.Text = checkBox1.Checked ? addressAttributeBox.Text+" "+nameBox.Text : nameBox.Text +" "+ addressAttributeBox.Text;
+            exampleBox.Text = !checkBox1.Checked ? addressAttributeBox.Text+" "+nameBox.Text : nameBox.Text +" "+ addressAttributeBox.Text;
         }
 
         private void NameBox_TextChanged(object sender, EventArgs e)
         {
-            exampleBox.Text = checkBox1.Checked ? addressAttributeBox.Text + " " + nameBox.Text : nameBox.Text + " " + addressAttributeBox.Text;
+            exampleBox.Text = !checkBox1.Checked ? addressAttributeBox.Text + " " + nameBox.Text : nameBox.Text + " " + addressAttributeBox.Text;
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            exampleBox.Text = checkBox1.Checked ? addressAttributeBox.Text + " " + nameBox.Text : nameBox.Text + " " + addressAttributeBox.Text;
+            exampleBox.Text = !checkBox1.Checked ? addressAttributeBox.Text + " " + nameBox.Text : nameBox.Text + " " + addressAttributeBox.Text;
         }
     }
 }

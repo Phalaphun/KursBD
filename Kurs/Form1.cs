@@ -43,10 +43,10 @@ namespace Kurs
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            Form log = new LoginForm();
+            //Form log = new LoginForm();
             
-            if (log.ShowDialog() == DialogResult.Cancel)
-                Close();
+            //if (log.ShowDialog() == DialogResult.Cancel)
+            //    Close();
                 
             LoadData();  
         }
@@ -56,15 +56,22 @@ namespace Kurs
             {
                 conn.Open();
 
-                buildingAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *  from buildings", conn));
-                audAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *  from audiences", conn));
-                departmentAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *  from department", conn));
-                citiesAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *  from cities_handbook", conn));
-                deansAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *  from deans_handbook", conn));
-                materialAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *  from material_handbook", conn));
-                materialResAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *  from materially_responsible", conn));
-                propertyAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *  from property", conn));
-                streetsAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select *  from streets_handbook", conn));
+                buildingAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select cadastre AS Кадастр, name AS Название, square as Площадь, " +
+                    "year_built as \"Год постройки\", num_of_floors as \"Число этажей\", comment as Комментарий, photo as Фото, material as Материал, city as Город, address as Адрес, house_number as \"Номер здания\"" +
+                    "  from buildings", conn));
+                audAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select aud_num as \"Номер аудитории\", square as Площадь, windows_nums as \"Число окон\", battery_nums as \"Число батарей\", " +
+                    "type as Назначение, materially_responsible as \"Материально ответственный\", department as Кафедра, name_of_building \"Кадастр здания\"  from audiences", conn));
+                departmentAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select id as ID, name as Название, second_name as \"Фамилия заведующего\", first_name as \"Имя заведующего\", fathers_name as \"Отчество заведующего\", " +
+                    "phone as Телефон, deans as \"Деканат или Директорат\" from department", conn));
+                citiesAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select id as ID, type as Тип, name as Название  from cities_handbook", conn));
+                deansAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select id as ID, name as Название  from deans_handbook", conn));
+                materialAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select id as ID, material as Материал  from material_handbook", conn));
+                materialResAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select id as ID, start_year as \"Год начала работы\", second_name as \"Фамилия ответственного\", first_name as \"Имя ответственного\", fathers_name as \"Отчество ответственного\", " +
+                    "city as Город, address as Адрес, num_of_house as \"Номер дома\", num_of_flat as \"Номер квартиры\" from materially_responsible", conn));
+                propertyAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select id as ID, name as Название, delivery_date as \"Дата поставки\", cost_per_one as \"Стоимость за единицу\", " +
+                    "reprice_date as \"Дата переоценки\", cost_after_reprice as \"Стоимость после переоценки\", lifetime as \"Срок эксплуатации\", " +
+                    "amount as Количество, depreciation as Износ, aud_num as \"Номер аудитории\"  from property", conn));
+                streetsAdapter = new NpgsqlDataAdapter(new NpgsqlCommand("Select id as ID, address_attribute as Тип, address_order as Порядок, name as Название  from streets_handbook", conn));
 
                 dataSet = new DataSet();
                 bs = new BindingSource();
@@ -424,6 +431,12 @@ namespace Kurs
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             conn.Close();
+        }
+
+        private void asdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form propAndAud = new QuerryPropAud(conn, dictionaries, keys, "ReCost");
+            propAndAud.ShowDialog();
         }
     }
 }
