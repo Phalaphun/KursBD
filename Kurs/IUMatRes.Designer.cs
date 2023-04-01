@@ -180,7 +180,7 @@
             this.updateBut.Name = "updateBut";
             this.updateBut.Size = new System.Drawing.Size(109, 52);
             this.updateBut.TabIndex = 15;
-            this.updateBut.Text = "Update";
+            this.updateBut.Text = "Изменить";
             this.updateBut.UseVisualStyleBackColor = true;
             this.updateBut.Click += new System.EventHandler(this.UpdateBut_Click);
             // 
@@ -190,7 +190,7 @@
             this.insertBut.Name = "insertBut";
             this.insertBut.Size = new System.Drawing.Size(109, 52);
             this.insertBut.TabIndex = 16;
-            this.insertBut.Text = "Insert";
+            this.insertBut.Text = "Вставить";
             this.insertBut.UseVisualStyleBackColor = true;
             this.insertBut.Click += new System.EventHandler(this.InsertBut_Click);
             // 
@@ -200,7 +200,7 @@
             this.exitBut.Name = "exitBut";
             this.exitBut.Size = new System.Drawing.Size(109, 54);
             this.exitBut.TabIndex = 17;
-            this.exitBut.Text = "Exit";
+            this.exitBut.Text = "Выход";
             this.exitBut.UseVisualStyleBackColor = true;
             this.exitBut.Click += new System.EventHandler(this.ExitBut_Click);
             // 
@@ -210,7 +210,7 @@
             this.clearBut.Name = "clearBut";
             this.clearBut.Size = new System.Drawing.Size(109, 52);
             this.clearBut.TabIndex = 18;
-            this.clearBut.Text = "Clear";
+            this.clearBut.Text = "Очистить";
             this.clearBut.UseVisualStyleBackColor = true;
             this.clearBut.Click += new System.EventHandler(this.ClearBut_Click);
             // 
@@ -289,7 +289,7 @@
             this.Controls.Add(this.yearBox);
             this.Controls.Add(this.idBox);
             this.Name = "IUMatRes";
-            this.Text = "IUMatRes";
+            this.Text = "Материально отвестсвенный";
             this.Load += new System.EventHandler(this.IUMatRes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

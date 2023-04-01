@@ -169,7 +169,7 @@
             this.updateBut.Name = "updateBut";
             this.updateBut.Size = new System.Drawing.Size(98, 54);
             this.updateBut.TabIndex = 14;
-            this.updateBut.Text = "Update";
+            this.updateBut.Text = "Изменить";
             this.updateBut.UseVisualStyleBackColor = true;
             this.updateBut.Click += new System.EventHandler(this.updateBut_Clicking);
             // 
@@ -179,17 +179,17 @@
             this.insertBut.Name = "insertBut";
             this.insertBut.Size = new System.Drawing.Size(98, 47);
             this.insertBut.TabIndex = 15;
-            this.insertBut.Text = "Insert";
+            this.insertBut.Text = "Вставить";
             this.insertBut.UseVisualStyleBackColor = true;
             this.insertBut.Click += new System.EventHandler(this.insertBut_Click);
             // 
             // clearBut
             // 
-            this.clearBut.Location = new System.Drawing.Point(42, 315);
+            this.clearBut.Location = new System.Drawing.Point(75, 315);
             this.clearBut.Name = "clearBut";
             this.clearBut.Size = new System.Drawing.Size(92, 47);
             this.clearBut.TabIndex = 16;
-            this.clearBut.Text = "Clear";
+            this.clearBut.Text = "Очистить";
             this.clearBut.UseVisualStyleBackColor = true;
             this.clearBut.Click += new System.EventHandler(this.clearBut_Click);
             // 
@@ -199,7 +199,7 @@
             this.exitBut.Name = "exitBut";
             this.exitBut.Size = new System.Drawing.Size(98, 53);
             this.exitBut.TabIndex = 17;
-            this.exitBut.Text = "Exit";
+            this.exitBut.Text = "Выход";
             this.exitBut.UseVisualStyleBackColor = true;
             this.exitBut.Click += new System.EventHandler(this.exitBut_Click);
             // 
@@ -237,7 +237,7 @@
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.idBox);
             this.Name = "IUDepartment";
-            this.Text = "IUDepartment";
+            this.Text = "Кафедра";
             this.Load += new System.EventHandler(this.IUDepartment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

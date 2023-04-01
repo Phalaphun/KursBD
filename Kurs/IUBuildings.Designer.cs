@@ -99,11 +99,11 @@
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(73, 305);
+            this.ClearButton.Location = new System.Drawing.Point(96, 305);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(123, 52);
             this.ClearButton.TabIndex = 7;
-            this.ClearButton.Text = "Clear";
+            this.ClearButton.Text = "Очистить";
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
@@ -113,7 +113,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 57);
             this.button4.TabIndex = 9;
-            this.button4.Text = "Update";
+            this.button4.Text = "Изменить";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
@@ -123,7 +123,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(112, 52);
             this.button5.TabIndex = 10;
-            this.button5.Text = "Insert";
+            this.button5.Text = "Вставить";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
@@ -133,7 +133,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(112, 54);
             this.button6.TabIndex = 11;
-            this.button6.Text = "Exit";
+            this.button6.Text = "Выход";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
@@ -279,6 +279,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.InitialDirectory = "Images";
             // 
             // pictureBox1
             // 
@@ -322,7 +323,7 @@
             this.comboBox3.TabIndex = 33;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.ComboBox3_SelectedIndexChanged);
             // 
-            // Insert_Update_Delete_buildings
+            // IUBuildings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -357,8 +358,8 @@
             this.Controls.Add(this.HouseNumBox);
             this.Controls.Add(this.SquareBox);
             this.Controls.Add(this.NameBox);
-            this.Name = "Insert_Update_Delete_buildings";
-            this.Text = "I/O";
+            this.Name = "IUBuildings";
+            this.Text = "Здание";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Insert_Update_Delete_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

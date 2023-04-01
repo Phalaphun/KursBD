@@ -3,12 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using Excel = Microsoft.Office.Interop.Excel;
+using ClosedXML.Excel;
+
 
 namespace Kurs
 {
@@ -254,6 +259,81 @@ namespace Kurs
                  default: return s1;
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataSet.Tables.Count == 0)
+                return;
+
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string temp = saveFileDialog1.FileName + ".xlsx";
+                using (XLWorkbook wb = new XLWorkbook())
+                {
+                    wb.Worksheets.Add(dataSet.Tables["querry"], "Customers");
+                    wb.SaveAs(temp);
+                }
+            }
+
+            //Excel.Application app = new Excel.Application();
+            //Excel.Workbook wb = app.Workbooks.Add();
+
+
+            //try
+            //{
+            //    Excel.Worksheet wsh = wb.ActiveSheet;
+            //    app.Columns.AutoFit();
+
+
+            //    for (int i = 0; i < dataGridView1.ColumnCount - 1; i++)
+            //    {
+            //        wsh.Cells[1, i+1] = dataGridView1.Columns[i].Name;
+            //    }
+            //    for (int i = 0; i < dataGridView1.RowCount - 2; i++)
+            //    {
+            //        for (int j = 0; j < dataGridView1.ColumnCount-1; j++)
+            //        {
+            //            wsh.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+            //            //wsh.Cells[i + 1, j + 1]
+            //        }
+            //    }
+            //    
+            //    app.AlertBeforeOverwriting = false;
+            //    string temp = saveFileDialog1.FileName +".xlsx";
+            //    wsh.SaveAs(temp);
+
+            //    //Marshal.ReleaseComObject(app);
+            //    //GC.GetTotalMemory(true);
+
+            //    app.Quit();
+
+            //    //try
+            //    //{
+            //    //    foreach (Process proc in Process.GetProcessesByName("EXCEL"))
+            //    //    {
+            //    //        proc.Kill();
+            //    //    }
+            //    //}
+            //    //catch (Exception ex)
+            //    //{
+            //    //    MessageBox.Show(ex.Message);
+            //    //}
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            conn.Close();
+            Close();
         }
     }
 }

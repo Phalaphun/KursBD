@@ -217,11 +217,11 @@
             // 
             // clearBut
             // 
-            this.clearBut.Location = new System.Drawing.Point(80, 349);
+            this.clearBut.Location = new System.Drawing.Point(198, 352);
             this.clearBut.Name = "clearBut";
             this.clearBut.Size = new System.Drawing.Size(102, 51);
             this.clearBut.TabIndex = 20;
-            this.clearBut.Text = "Clear";
+            this.clearBut.Text = "Очистить";
             this.clearBut.UseVisualStyleBackColor = true;
             this.clearBut.Click += new System.EventHandler(this.clearBut_Click);
             // 
@@ -231,7 +231,7 @@
             this.updateBut.Name = "updateBut";
             this.updateBut.Size = new System.Drawing.Size(98, 52);
             this.updateBut.TabIndex = 21;
-            this.updateBut.Text = "Update";
+            this.updateBut.Text = "Изменить";
             this.updateBut.UseVisualStyleBackColor = true;
             this.updateBut.Click += new System.EventHandler(this.updateBut_Click);
             // 
@@ -241,7 +241,7 @@
             this.insertBut.Name = "insertBut";
             this.insertBut.Size = new System.Drawing.Size(98, 54);
             this.insertBut.TabIndex = 22;
-            this.insertBut.Text = "Insert";
+            this.insertBut.Text = "Вставить";
             this.insertBut.UseVisualStyleBackColor = true;
             this.insertBut.Click += new System.EventHandler(this.insertBut_Click);
             // 
@@ -251,7 +251,7 @@
             this.exitBut.Name = "exitBut";
             this.exitBut.Size = new System.Drawing.Size(98, 53);
             this.exitBut.TabIndex = 23;
-            this.exitBut.Text = "Exit";
+            this.exitBut.Text = "Выход";
             this.exitBut.UseVisualStyleBackColor = true;
             this.exitBut.Click += new System.EventHandler(this.exitBut_Click);
             // 
@@ -285,7 +285,7 @@
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.idBox);
             this.Name = "IUProperty";
-            this.Text = "IUProperty";
+            this.Text = "Имущество";
             this.Load += new System.EventHandler(this.IUProperty_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

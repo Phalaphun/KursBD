@@ -217,10 +217,6 @@ namespace Kurs
             }
             Make_Dictionaries();
         }
-        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         private void Button1_Click(object sender, EventArgs e)
         {
             if (currentTable == String.Empty)
@@ -423,6 +419,11 @@ namespace Kurs
         {
             Form propAndAud = new QuerryPropAud(conn, dictionaries, keys, "FullCost");
             propAndAud.ShowDialog();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            conn.Close();
         }
     }
 }

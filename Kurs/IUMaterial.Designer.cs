@@ -44,7 +44,7 @@
             this.clearBut.Name = "clearBut";
             this.clearBut.Size = new System.Drawing.Size(94, 39);
             this.clearBut.TabIndex = 36;
-            this.clearBut.Text = "Clear";
+            this.clearBut.Text = "Очистить";
             this.clearBut.UseVisualStyleBackColor = true;
             this.clearBut.Click += new System.EventHandler(this.ClearBut_Click);
             // 
@@ -54,7 +54,7 @@
             this.exitBut.Name = "exitBut";
             this.exitBut.Size = new System.Drawing.Size(108, 45);
             this.exitBut.TabIndex = 35;
-            this.exitBut.Text = "Exit";
+            this.exitBut.Text = "Выход";
             this.exitBut.UseVisualStyleBackColor = true;
             this.exitBut.Click += new System.EventHandler(this.ExitBut_Click);
             // 
@@ -64,7 +64,7 @@
             this.insertBut.Name = "insertBut";
             this.insertBut.Size = new System.Drawing.Size(108, 39);
             this.insertBut.TabIndex = 34;
-            this.insertBut.Text = "Insert";
+            this.insertBut.Text = "Вставить";
             this.insertBut.UseVisualStyleBackColor = true;
             this.insertBut.Click += new System.EventHandler(this.InsertBut_Click);
             // 
@@ -74,7 +74,7 @@
             this.updateBut.Name = "updateBut";
             this.updateBut.Size = new System.Drawing.Size(108, 42);
             this.updateBut.TabIndex = 33;
-            this.updateBut.Text = "Update";
+            this.updateBut.Text = "Изменить";
             this.updateBut.UseVisualStyleBackColor = true;
             this.updateBut.Click += new System.EventHandler(this.UpdateBut_Click);
             // 
@@ -125,7 +125,7 @@
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.idBox);
             this.Name = "IUMaterial";
-            this.Text = "IUMaterial";
+            this.Text = "Материал";
             this.Load += new System.EventHandler(this.IUMaterial_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
