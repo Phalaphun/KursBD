@@ -45,7 +45,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(197, 45);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 20);
+            this.textBox1.Size = new System.Drawing.Size(239, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
@@ -89,7 +89,7 @@
             // 
             // Искать
             // 
-            this.Искать.Location = new System.Drawing.Point(411, 64);
+            this.Искать.Location = new System.Drawing.Point(465, 64);
             this.Искать.Name = "Искать";
             this.Искать.Size = new System.Drawing.Size(122, 35);
             this.Искать.TabIndex = 6;
@@ -102,7 +102,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(198, 95);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(186, 21);
+            this.comboBox1.Size = new System.Drawing.Size(238, 21);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.TextChanged += new System.EventHandler(this.ComboBox1_TextChanged);
             // 

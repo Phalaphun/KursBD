@@ -107,13 +107,51 @@ namespace Kurs
                 adapter.Fill(dataSet,"querry");
                 bs.DataSource = dataSet.Tables["querry"];
                 dataGridView1.DataSource = bs;
-                switch(mission)
+                if (textBox1.Text != "Все")
                 {
-                    case "Aud":
-                        if(String.IsNullOrEmpty(comboBox1.Text))
-                            comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length-3].ToString() +" "+ dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString() + " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
-                        break;
+                    if (String.IsNullOrEmpty(comboBox1.Text) && dataSet.Tables["querry"].Rows.Count > 0)
+                        comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 3].ToString() +
+                            " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString() +
+                            " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
+
+                    if (!String.IsNullOrEmpty(textBox1.Text))
+                    {
+                        dataGridView1.Columns["Фамилия мат. ответственного"].Visible = false;
+                        dataGridView1.Columns["Имя мат. ответственного"].Visible = false;
+                        dataGridView1.Columns["Отчество мат. ответственного"].Visible = false;
+                    }
+                    if (!String.IsNullOrEmpty(textBox1.Text))
+                        dataGridView1.Columns["Номер аудитории"].Visible = false;
+                    else
+                        dataGridView1.Columns["Номер аудитории"].Visible = true; 
                 }
+                //switch(mission)
+                //{
+                //    case "Aud":
+                //        if(String.IsNullOrEmpty(comboBox1.Text))
+                //            comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length-3].ToString()+
+                //                " "+ dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString()+
+                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
+                //        break;
+                //    case "Rem":
+                //        if (String.IsNullOrEmpty(comboBox1.Text))
+                //            comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 3].ToString() +
+                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString() +
+                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
+                //        break;
+                //    case "Recost":
+                //        if (String.IsNullOrEmpty(comboBox1.Text))
+                //            comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 3].ToString() +
+                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString() +
+                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
+                //        break;
+                //    case "FullCost":
+                //        if (String.IsNullOrEmpty(comboBox1.Text))
+                //            comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 3].ToString() +
+                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString() +
+                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
+                //        break;
+                //}
 
             }
             catch (Exception ex)
@@ -136,8 +174,8 @@ namespace Kurs
                     if (textBox1.Text == "" || textBox1.Text == " ")
                     {
                         s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
-                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия материально ответственного\", " +
-                        "materially_responsible.first_name as \"Имя материально ответственного\", materially_responsible.fathers_name as \"Отчество материально ответственного\"  " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -145,9 +183,9 @@ namespace Kurs
                     }
                     else if((comboBox1.Text == "" || comboBox1.Text == " ") && textBox1.Text != "Все")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -155,21 +193,21 @@ namespace Kurs
                     }
                     else if(textBox1.Text == "Все")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
-                        $"where and audiences.materially_responsible = materially_responsible.id";
+                        $"where audiences.materially_responsible = materially_responsible.id";
                     }
                     return s1;
                 case "Rem":
                     if (textBox1.Text == "" || textBox1.Text == " ")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -177,9 +215,9 @@ namespace Kurs
                     }
                     else if ((comboBox1.Text == "" || comboBox1.Text == " ") && textBox1.Text !="Все")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -187,9 +225,9 @@ namespace Kurs
                     }
                     else if (textBox1.Text == "Все")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -199,9 +237,9 @@ namespace Kurs
                 case "ReCost":
                     if (textBox1.Text == "" || textBox1.Text == " ")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -209,9 +247,9 @@ namespace Kurs
                     }
                     else if ((comboBox1.Text == "" || comboBox1.Text == " ") && textBox1.Text != "Все")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -219,9 +257,9 @@ namespace Kurs
                     }
                     else if (textBox1.Text == "Все")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -231,10 +269,11 @@ namespace Kurs
                 case ("FullCost"):
                     if (textBox1.Text == "" || textBox1.Text == " ")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name, " +
-                        "case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as FullCost  " + //Добавление вычисляемого поля
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", " +
+                        "case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as \"Итоговая стоимость\",  " +  //Добавление вычисляемого поля
+                        "property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -242,9 +281,11 @@ namespace Kurs
                     }
                     else if ((comboBox1.Text == "" || comboBox1.Text == " ") && textBox1.Text != "Все")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name, case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as FullCost  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", " +
+                        "case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as \"Итоговая стоимость\",  " +  //Добавление вычисляемого поля
+                        "property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
@@ -252,9 +293,11 @@ namespace Kurs
                     }
                     else if (textBox1.Text == "Все")
                     {
-                        s1 = "Select property.id, property.name, property.delivery_date, property.cost_per_one, property.reprice_date, " +
-                        "property.cost_after_reprice, property.lifetime, property.amount, property.depreciation, property.aud_num, materially_responsible.second_name, " +
-                        "materially_responsible.first_name, materially_responsible.fathers_name, case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as FullCost  " +
+                        s1 = "Select property.id, property.name as Название, property.delivery_date as \"Дата поставки\", property.cost_per_one as \"Стоимость за единицу\", property.reprice_date as \"Дата переоценки\", " +
+                        "property.cost_after_reprice as \"Стоимость после переоценки\", property.lifetime as \"Срок эксплуатации\", property.amount as \"Количество\", property.depreciation as \"Износ\", " +
+                        "case when reprice_date<now() and cost_after_reprice>0 then property.amount*cost_after_reprice else  property.amount*cost_per_one end as \"Итоговая стоимость\",  " +  //Добавление вычисляемого поля
+                        "property.aud_num as \"Номер аудитории\", materially_responsible.second_name as \"Фамилия мат. ответственного\", " +
+                        "materially_responsible.first_name as \"Имя мат. ответственного\", materially_responsible.fathers_name as \"Отчество мат. ответственного\"  " +
                         "from " +
                         "((property inner join audiences on property.aud_num = audiences.aud_num) " +
                         "inner join materially_responsible on materially_responsible=audiences.materially_responsible) " +
