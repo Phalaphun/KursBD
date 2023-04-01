@@ -190,26 +190,26 @@ namespace Kurs
                 }
 
                 int square = int.Parse(SquareBox.Text);
-                int windows_nums = int.Parse(WinBox.Text);
-                int battery_nums = int.Parse(BatteryBox.Text);
-                //int? windows_nums;
-                //if (WinBox.Text == "" || WinBox.Text == " ")
-                //{
-                //    windows_nums = null;
-                //}
-                //else
-                //{
-                //    windows_nums = int.Parse(WinBox.Text);
-                //}
-                //int? battery_nums;
-                //if (BatteryBox.Text == "" || BatteryBox.Text == " ")
-                //{
-                //    battery_nums = null;
-                //}
-                //else
-                //{
-                //    battery_nums = int.Parse(BatteryBox.Text);
-                //}
+                //int windows_nums = int.Parse(WinBox.Text);
+                //int battery_nums = int.Parse(BatteryBox.Text);
+                int? windows_nums;
+                if (WinBox.Text == "" || WinBox.Text == " ")
+                {
+                    windows_nums = null;
+                }
+                else
+                {
+                    windows_nums = int.Parse(WinBox.Text);
+                }
+                int? battery_nums;
+                if (BatteryBox.Text == "" || BatteryBox.Text == " ")
+                {
+                    battery_nums = null;
+                }
+                else
+                {
+                    battery_nums = int.Parse(BatteryBox.Text);
+                }
                 int materially_responsible = int.Parse(matResBox.Text);
                 int department = int.Parse(depBox.Text);
 
@@ -217,26 +217,26 @@ namespace Kurs
                 NpgsqlCommand cmd = new NpgsqlCommand(command, conn);
                 cmd.Parameters.AddWithValue("@p1", AudBox.Text);
                 cmd.Parameters.AddWithValue("@p2", square);
-                cmd.Parameters.AddWithValue("@p3", windows_nums);
-                //if (windows_nums == null)
-                //{
-                //    cmd.Parameters.Add(new NpgsqlParameter("@p3", NpgsqlDbType.Integer));
-                //    cmd.Parameters[2].Value = DBNull.Value;
-                //}
-                //else
-                //{
-                //    cmd.Parameters.AddWithValue("@p3", windows_nums);
-                //}
+                //cmd.Parameters.AddWithValue("@p3", windows_nums);
+                if (windows_nums == null)
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p3", NpgsqlDbType.Integer));
+                    cmd.Parameters[2].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p3", windows_nums);
+                }
                 cmd.Parameters.AddWithValue("@p4", battery_nums);
-                //if (battery_nums == null)
-                //{
-                //    cmd.Parameters.Add(new NpgsqlParameter("@p4", NpgsqlDbType.Integer));
-                //    cmd.Parameters[3].Value = DBNull.Value;
-                //}
-                //else
-                //{
-                //    cmd.Parameters.AddWithValue("@p4", battery_nums);
-                //}
+                if (battery_nums == null)
+                {
+                    cmd.Parameters.Add(new NpgsqlParameter("@p4", NpgsqlDbType.Integer));
+                    cmd.Parameters[3].Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@p4", battery_nums);
+                }
                 cmd.Parameters.AddWithValue("@p5", typeBox.Text);
                 //cmd.Parameters.AddWithValue("@p6", buildBox.Text);
                 if (buildBox.Text == "" || buildBox.Text == " ")
@@ -274,21 +274,6 @@ namespace Kurs
                     item.Text = String.Empty;
                 }
             }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            WinBox.Text = "";
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            BatteryBox.Text = "";
-        }
-
-        private void WinBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

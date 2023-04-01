@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using Excel = Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;
 using ClosedXML.Excel;
 
 
@@ -125,33 +125,6 @@ namespace Kurs
                     else
                         dataGridView1.Columns["Номер аудитории"].Visible = true; 
                 }
-                //switch(mission)
-                //{
-                //    case "Aud":
-                //        if(String.IsNullOrEmpty(comboBox1.Text))
-                //            comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length-3].ToString()+
-                //                " "+ dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString()+
-                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
-                //        break;
-                //    case "Rem":
-                //        if (String.IsNullOrEmpty(comboBox1.Text))
-                //            comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 3].ToString() +
-                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString() +
-                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
-                //        break;
-                //    case "Recost":
-                //        if (String.IsNullOrEmpty(comboBox1.Text))
-                //            comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 3].ToString() +
-                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString() +
-                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
-                //        break;
-                //    case "FullCost":
-                //        if (String.IsNullOrEmpty(comboBox1.Text))
-                //            comboBox1.Text = dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 3].ToString() +
-                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 2].ToString() +
-                //                " " + dataSet.Tables["querry"].Rows[0].ItemArray[dataSet.Tables["querry"].Rows[0].ItemArray.Length - 1].ToString();
-                //        break;
-                //}
 
             }
             catch (Exception ex)
@@ -314,50 +287,47 @@ namespace Kurs
         {
             if (dataSet.Tables.Count == 0)
                 return;
-
-
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string temp = saveFileDialog1.FileName + ".xlsx";
                 using (XLWorkbook wb = new XLWorkbook())
                 {
-                    wb.Worksheets.Add(dataSet.Tables["querry"], "Customers");
+                    wb.Worksheets.Add(dataSet.Tables["querry"], "Result");
                     wb.SaveAs(temp);
                 }
             }
 
             //Excel.Application app = new Excel.Application();
             //Excel.Workbook wb = app.Workbooks.Add();
-
-
             //try
             //{
             //    Excel.Worksheet wsh = wb.ActiveSheet;
             //    app.Columns.AutoFit();
 
-
             //    for (int i = 0; i < dataGridView1.ColumnCount - 1; i++)
             //    {
-            //        wsh.Cells[1, i+1] = dataGridView1.Columns[i].Name;
+            //        wsh.Cells[1, i + 1] = dataGridView1.Columns[i].Name;
+            //        wsh.Cells[1, i + 1].
             //    }
             //    for (int i = 0; i < dataGridView1.RowCount - 2; i++)
             //    {
-            //        for (int j = 0; j < dataGridView1.ColumnCount-1; j++)
+            //        for (int j = 0; j < dataGridView1.ColumnCount - 1; j++)
             //        {
             //            wsh.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
             //            //wsh.Cells[i + 1, j + 1]
             //        }
             //    }
-            //    
             //    app.AlertBeforeOverwriting = false;
-            //    string temp = saveFileDialog1.FileName +".xlsx";
-            //    wsh.SaveAs(temp);
+            //    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            //    {
+            //        string temp = saveFileDialog1.FileName + ".xlsx";
+            //        wsh.SaveAs(temp);
 
-            //    //Marshal.ReleaseComObject(app);
-            //    //GC.GetTotalMemory(true);
-
+            //        //Marshal.ReleaseComObject(app);
+            //        //GC.GetTotalMemory(true);
+            //        //app.Visible = true; 
+            //    }
             //    app.Quit();
-
             //    //try
             //    //{
             //    //    foreach (Process proc in Process.GetProcessesByName("EXCEL"))

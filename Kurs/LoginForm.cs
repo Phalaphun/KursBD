@@ -38,17 +38,10 @@ namespace Kurs
             {
                 conn.Open();
                 adapter = new NpgsqlDataAdapter(cmd);
-
-
-
                 //NpgsqlCommand a = new NpgsqlCommand($"Insert into login (login, password) values (@p1, @p2) ", conn);
                 //a.Parameters.AddWithValue("@p1",textBox1.Text);
                 //a.Parameters.AddWithValue("@p2", password);
                 //a.ExecuteNonQuery();
-                
-
-
-
                 adapter.Fill(dt);
             }
             catch (Exception ex)
@@ -65,7 +58,6 @@ namespace Kurs
                 MessageBox.Show("Авторизация пройдена успешно");
                 this.DialogResult = DialogResult.OK;
                 Close();
-                
                 //new Form1().Show();
                 //Close();
             }
@@ -73,6 +65,11 @@ namespace Kurs
             {
                 MessageBox.Show("Неверный логин или пароль.");
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

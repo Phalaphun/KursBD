@@ -43,11 +43,11 @@ namespace Kurs
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Form log = new LoginForm();
-            
-            //if (log.ShowDialog() == DialogResult.Cancel)
-            //    Close();
-                
+            Form log = new LoginForm();
+
+            if (log.ShowDialog() == DialogResult.Cancel)
+                Close();
+
             LoadData();  
         }
         private void LoadData()
@@ -102,6 +102,7 @@ namespace Kurs
         private void BuildingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "buildings";
+            Refresh1();
             //dataGridView1.DataSource = dataSet.Tables[currentTable];
             bs.DataSource = dataSet.Tables[currentTable];
             dataGridView1.DataSource = bs;
@@ -112,6 +113,7 @@ namespace Kurs
         private void AudiencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "audiences";
+            Refresh1();
             bs.DataSource = dataSet.Tables[currentTable];
             dataGridView1.DataSource = bs;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -121,6 +123,7 @@ namespace Kurs
         private void PropertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "property";
+            Refresh1();
             bs.DataSource = dataSet.Tables[currentTable];
             dataGridView1.DataSource = bs;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -130,6 +133,7 @@ namespace Kurs
         private void MateriallyResponsiblesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "materially_responsible";
+            Refresh1();
             bs.DataSource = dataSet.Tables[currentTable];
             dataGridView1.DataSource = bs;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -139,6 +143,7 @@ namespace Kurs
         private void MepartmentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "department";
+            Refresh1();
             bs.DataSource = dataSet.Tables[currentTable];
             dataGridView1.DataSource = bs;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -148,6 +153,7 @@ namespace Kurs
         private void DeansToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "deans_handbook";
+            Refresh1();
             bs.DataSource = dataSet.Tables[currentTable];
             dataGridView1.DataSource = bs;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -157,6 +163,7 @@ namespace Kurs
         private void MaterialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "material_handbook";
+            Refresh1();
             bs.DataSource = dataSet.Tables[currentTable];
             dataGridView1.DataSource = bs;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -166,6 +173,7 @@ namespace Kurs
         private void CitiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "cities_handbook";
+            Refresh1();
             bs.DataSource = dataSet.Tables[currentTable];
             dataGridView1.DataSource = bs;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -175,6 +183,7 @@ namespace Kurs
         private void StreetsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "streets_handbook";
+            Refresh1();
             bs.DataSource = dataSet.Tables[currentTable];
             dataGridView1.DataSource = bs;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -319,8 +328,20 @@ namespace Kurs
             if (currentTable == String.Empty)
                 return;
             string command = $"DELETE FROM {currentTable} WHERE {dataGridView1.Columns[0].HeaderText} = {dataGridView1.SelectedRows[0].Cells[0].Value}";
-            NpgsqlCommand cmd = new NpgsqlCommand(command, conn);
-            //cmd.ExecuteNonQuery();
+            try
+            {
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand(command, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {

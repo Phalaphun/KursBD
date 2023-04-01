@@ -73,7 +73,7 @@
             this.WinBox.Name = "WinBox";
             this.WinBox.Size = new System.Drawing.Size(172, 20);
             this.WinBox.TabIndex = 2;
-            this.WinBox.TextChanged += new System.EventHandler(this.WinBox_TextChanged);
+
             // 
             // BatteryBox
             // 
