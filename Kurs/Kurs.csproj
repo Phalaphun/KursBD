@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.85.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.85.0\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -100,10 +106,106 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IUBuildings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUBuildings.Designer.cs">
+      <DependentUpon>IUBuildings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IUAud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUAud.Designer.cs">
+      <DependentUpon>IUAud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IUCities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUCities.Designer.cs">
+      <DependentUpon>IUCities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IUDeans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUDeans.Designer.cs">
+      <DependentUpon>IUDeans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IUDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUDepartment.Designer.cs">
+      <DependentUpon>IUDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IUMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUMaterial.Designer.cs">
+      <DependentUpon>IUMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IUMatRes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUMatRes.Designer.cs">
+      <DependentUpon>IUMatRes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IUProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUProperty.Designer.cs">
+      <DependentUpon>IUProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IUStreets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUStreets.Designer.cs">
+      <DependentUpon>IUStreets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuerryPropAud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuerryPropAud.Designer.cs">
+      <DependentUpon>QuerryPropAud.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUBuildings.resx">
+      <DependentUpon>IUBuildings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUAud.resx">
+      <DependentUpon>IUAud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUCities.resx">
+      <DependentUpon>IUCities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUDeans.resx">
+      <DependentUpon>IUDeans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUDepartment.resx">
+      <DependentUpon>IUDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUMaterial.resx">
+      <DependentUpon>IUMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUMatRes.resx">
+      <DependentUpon>IUMatRes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUProperty.resx">
+      <DependentUpon>IUProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IUStreets.resx">
+      <DependentUpon>IUStreets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -114,6 +216,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="QuerryPropAud.resx">
+      <DependentUpon>QuerryPropAud.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -127,6 +232,55 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="MSXML2">
+      <Guid>{F5078F18-C551-11D3-89B9-0000F81FE221}</Guid>
+      <VersionMajor>6</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Лаба.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Второй.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Главный.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
