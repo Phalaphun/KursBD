@@ -325,9 +325,39 @@ namespace Kurs
         }
         private void Button3_Click(object sender, EventArgs e)
         {
-            if (currentTable == String.Empty)
-                return;
-            string command = $"DELETE FROM {currentTable} WHERE {dataGridView1.Columns[0].HeaderText} = {dataGridView1.SelectedRows[0].Cells[0].Value}";
+            string command = String.Empty;
+            switch (currentTable)
+            {
+                case "buildings":
+                    command = $"DELETE FROM {currentTable} WHERE cadastre = '{dataGridView1.SelectedRows[0].Cells[0].Value}'";
+                    break;
+                case "audiences":
+                    command = $"DELETE FROM {currentTable} WHERE aud_num = '{dataGridView1.SelectedRows[0].Cells[0].Value}'";
+                    break;
+                case "department":
+                    command = $"DELETE FROM {currentTable} WHERE id = {dataGridView1.SelectedRows[0].Cells[0].Value}";
+                    break;
+                case "cities_handbook":
+                    command = $"DELETE FROM {currentTable} WHERE id = {dataGridView1.SelectedRows[0].Cells[0].Value}";
+                    break;
+                case "deans_handbook":
+                    command = $"DELETE FROM {currentTable} WHERE id = {dataGridView1.SelectedRows[0].Cells[0].Value}";
+                    break;
+                case "material_handbook":
+                    command = $"DELETE FROM {currentTable} WHERE id = {dataGridView1.SelectedRows[0].Cells[0].Value}";
+                    break;
+                case "materially_responsible":
+                    command = $"DELETE FROM {currentTable} WHERE id = {dataGridView1.SelectedRows[0].Cells[0].Value}";
+                    break;
+                case "property":
+                    command = $"DELETE FROM {currentTable} WHERE id = {dataGridView1.SelectedRows[0].Cells[0].Value}";
+                    break;
+                case "streets_handbook":
+                    command = $"DELETE FROM {currentTable} WHERE id = {dataGridView1.SelectedRows[0].Cells[0].Value}";
+                    break;
+                default:
+                    break;
+            }
             try
             {
                 conn.Open();
@@ -342,6 +372,7 @@ namespace Kurs
             {
                 conn.Close();
             }
+            Refresh1();
         }
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
