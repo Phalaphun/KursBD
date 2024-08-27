@@ -25,4 +25,35 @@ namespace Kurs
         //On audiences.materially_responsible = materially_responsible.id
         //where audiences.materially_responsible=1
     }
+
+    class A
+    {
+        private string aa;
+        private string bb;
+
+        public A(string aa, string bb)
+        {
+            this.aa = aa ?? throw new ArgumentNullException(nameof(aa));
+            this.bb = bb ?? throw new ArgumentNullException(nameof(bb));
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is A a &&
+                   aa == a.aa &&
+                   bb == a.bb;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+    }
+
+    
 }
